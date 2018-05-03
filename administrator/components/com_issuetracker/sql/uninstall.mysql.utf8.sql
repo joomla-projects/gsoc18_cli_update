@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS `#__it_attachment`;
+DROP TABLE IF EXISTS `#__it_issues_log`;
+DROP TABLE IF EXISTS `#__it_progress`;
+DROP TABLE IF EXISTS `#__it_custom_field`;
+DROP TABLE IF EXISTS `#__it_custom_field_group`;
+DROP TABLE IF EXISTS `#__it_issues`;
+DROP TABLE IF EXISTS `#__it_people`;
+DROP TABLE IF EXISTS `#__it_projects`;
+DROP TABLE IF EXISTS `#__it_status`;
+DROP TABLE IF EXISTS `#__it_roles`;
+DROP TABLE IF EXISTS `#__it_priority`;
+DROP TABLE IF EXISTS `#__it_types`;
+DROP TABLE IF EXISTS `#__it_emails`;
+DROP TABLE IF EXISTS `#__it_meta`;
+DROP TABLE IF EXISTS `#__it_chistory`;
+DROP TABLE IF EXISTS `#__it_triggers`;

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE form>
+<form>
+   <fieldset name="core" label="COM_ISSUETRACKER_CUSTOM_FIELDS" addfieldpath="/administrator/components/com_issuetracker/models/fields">
+      <field name="id" type="text" default="0" label="JGLOBAL_FIELD_ID_LABEL"
+         readonly="true" class="readonly"
+         description="JGLOBAL_FIELD_ID_DESC" /> 
+
+      <field name="name" type="text" size="40" class="inputbox"                
+         label="COM_ISSUETRACKER_FORM_LBL_CUSTOMFIELD_FIELDNAME"
+         description="COM_ISSUETRACKER_FORM_DESC_CUSTOMFIELD_FIELDNAME" 
+         required="true" 
+         filter="safehtml" /> 
+
+      <field name="type" type="customfieldtype" size="40" class="inputbox"                
+         label="COM_ISSUETRACKER_FORM_LBL_CUSTOMFIELD_TYPE"
+         description="COM_ISSUETRACKER_FORM_DESC_CUSTOMFIELD_TYPE"
+         required="true"
+         default="0"                 
+         filter="safehtml" /> 
+
+      <field name="validation" type="editor" buttons="true"
+         class="inputbox"
+         filter="safehtml"
+         label="COM_ISSUETRACKER_FORM_LBL_CUSTOMFIELD_VALIDATION"
+         description="COM_ISSUETRACKER_FORM_DESC_CUSTOMFIELD_VALIDATION"  /> 
+
+      <field name="access"
+         type="accesslevel"
+         label="JFIELD_ACCESS_LABEL"
+         description="JFIELD_ACCESS_DESC"
+         class="inputbox"/>
+ 
+      <field name="group" type="customfieldgroupsa" size="40" class="inputbox"
+         label="COM_ISSUETRACKER_FORM_LBL_CUSTOMFIELD_GROUPNAME"
+         description="COM_ISSUETRACKER_FORM_DESC_CUSTOMFIELD_GROUPNAME" 
+         required="true"
+         filter="safehtml" /> 
+
+      <field name="required" type="radio"
+         label="COM_ISSUETRACKER_FIELD_REQUIRED_LABEL"
+         description="COM_ISSUETRACKER_FIELD_REQUIRED_DESC"
+         class="btn-group"
+         size="1"
+         default="1">
+         <option value="1">JYES</option>
+         <option value="0">JNO</option>
+      </field> 
+
+     <field name="shownullflag" type="radio"
+         label="COM_ISSUETRACKER_FIELD_SHOWNULLFLAG_LABEL"
+         description="COM_ISSUETRACKER_FIELD_SHOWNULLFLAG_DESC"
+         class="btn-group"
+         size="1"
+         default="0">
+         <option value="1">JYES</option>
+         <option value="0">JNO</option>
+      </field> 
+
+     <field name="displayinfe" type="radio"
+         label="COM_ISSUETRACKER_FIELD_DISPLAYINFE_LABEL"
+         description="COM_ISSUETRACKER_FIELD_DISPLAYINFE_DESC"
+         class="btn-group"
+         size="1"
+         default="1">
+         <option value="1">JYES</option>
+         <option value="0">JNO</option>
+      </field> 
+
+      <field name="value" type="text" size="40" class="inputbox"
+         label="COM_ISSUETRACKER_FORM_LBL_CUSTOMFIELD_DEFAULTVALUE"
+         description="COM_ISSUETRACKER_FORM_DESC_CUSTOMFIELD_DEFAULTVALUE"                
+         filter="safehtml" /> 
+
+      <field name="tooltip" type="editor" buttons="true"
+         class="inputbox"
+         filter="safehtml"
+         label="COM_ISSUETRACKER_FORM_LBL_CUSTOMFIELD_TOOLTIP"
+         description="COM_ISSUETRACKER_FORM_DESC_CUSTOMFIELD_TOOLTIP"  /> 
+
+      <field name="state" type="list"
+         label="JSTATUS"
+         description="JFIELD_PUBLISHED_DESC"
+         class="inputbox"
+         size="1"
+         default="1">
+         <option value="1">JPUBLISHED</option>
+         <option value="0">JUNPUBLISHED</option>
+      </field> 
+
+      <field name="checked_out" type="hidden" filter="unset" />
+      <field name="checked_out_time" type="hidden" filter="unset" />
+
+      <field name="default_values" type="text" default="" 
+         label="COM_ISSUETRACKER_FORM_CUSTOMFIELD_DEFAULTVALUE_LABEL" 
+         description="COM_ISSUETRACKER_FORM_CUSTOMFIELD_DEFAULTVALUE_DESC"
+         size="50"
+         filter="safehtml" />    
+
+      <field name="default_values_text" type="text" default="" 
+         label="COM_ISSUETRACKER_FORM_CUSTOMFIELD_DEFAULTVALUE_LABEL" 
+         description="COM_ISSUETRACKER_FORM_CUSTOMFIELD_DEFAULTVALUE_DESC"
+         size="50"
+         filter="safehtml" />    
+
+      <field name="default_values_textarea" type="textarea" default="" 
+         label="COM_ISSUETRACKER_FORM_CUSTOMFIELD_DEFAULTVALUE_LABEL" 
+         description="COM_ISSUETRACKER_FORM_CUSTOMFIELD_DEFAULTVALUE_DESC"
+         size="50"
+         rows="10"
+         cols="80"
+         filter="safehtml" />    
+
+ 
+      <field name="default_values_date" type="calendar" default="" 
+          label="COM_ISSUETRACKER_FORM_CUSTOMFIELD_DEFAULTVALUE_LABEL" 
+          description="COM_ISSUETRACKER_FORM_CUSTOMFIELD_DEFAULTVALUE_DESC"
+          size="30" />    
+
+      <field name="textarea_rows" type="text" size="20" default="10" class="inputbox"                
+         label="COM_ISSUETRACKER_FORM_CUSTOMFIELD_TEXTAREAROWS_LABEL"
+         description="COM_ISSUETRACKER_FORM_CUSTOMFIELD_TEXTAREAROWS_DESC" 
+         required="false" 
+         filter="integer" /> 
+
+      <field name="textarea_cols" type="text" size="20" default="80" class="inputbox"                
+         label="COM_ISSUETRACKER_FORM_CUSTOMFIELD_TEXTAREACOLS_LABEL"
+         description="COM_ISSUETRACKER_FORM_CUSTOMFIELD_TEXTAREACOLS_DESC" 
+         required="false" 
+         filter="integer" /> 
+
+     <field name="textarea_editor" type="radio"
+         label="COM_ISSUETRACKER_FORM_CUSTOMFIELD_TEXTAREAEDITOR_LABEL"
+         description="COM_ISSUETRACKER_FORM_CUSTOMFIELD_TEXTAREAEDITOR_DESC"
+         class="btn-group"
+         size="1"
+         default="0">
+         <option value="1">JYES</option>
+         <option value="0">JNO</option>
+      </field> 
+
+
+   </fieldset>
+
+   <fieldset name="audit" label="COM_ISSUETRACKER_ISSUE_AUDIT_LEGEND">
+      <field name="created_on" type="timecreated" default="" 
+         label="COM_ISSUETRACKER_FIELD_CREATED_ON_LABEL" 
+         description="COM_ISSUETRACKER_CREATED_ON_DESC"
+         readonly="true"
+         disabled="true"
+         size="30" />    
+
+      <field name="created_by" type="text"
+         label="COM_ISSUETRACKER_FIELD_CREATED_BY_LABEL"
+         description="COM_ISSUETRACKER_FIELD_CREATED_BY_DESC"
+         readonly="true"
+         disabled="true"
+         size="40" />
+
+     <field name="modified_on" type="timeupdated" default="" 
+         label="COM_ISSUETRACKER_FIELD_MODIFIED_ON_LABEL" 
+         description="COM_ISSUETRACKER_FIELD_MODIFIED_ON_DESC"
+         readonly="true"
+         disabled="true"
+         size="30" />    
+
+     <field name="modified_by" type="text"
+         label="COM_ISSUETRACKER_FIELD_MODIFIED_BY_LABEL"
+         description="COM_ISSUETRACKER_FIELD_MODIFIED_BY_DESC"
+         readonly="true"
+         disabled="true"
+         size="40" />
+   </fieldset>
+</form>

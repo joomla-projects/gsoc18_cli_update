@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE form>
+<form>
+   <fieldset name="core" label="COM_ISSUETRACKER_ISSUE_DEFAULT_LEGEND" addfieldpath="/administrator/components/com_issuetracker/models/fields">      
+      <field name="id" type="text" class="readonly"
+         label="COM_ISSUETRACKER_FIELD_ISSUE_ID_LABEL"
+		 description ="COM_ISSUETRACKER_FIELD_ISSUE_ID_DESC"
+         size="10" default="0" readonly="true"
+			/>
+
+      <field name="alias" type="hidden"
+         class="inputbox"
+         label="COM_ISSUETRACKER_FIELD_ISSUE_NUMBER_LABEL"
+         description="COM_ISSUETRACKER_FIELD_ISSUE_NUMBER_DESC"
+         size="12" readonly="true"
+         required="false" />
+
+      <field name="issue_summary" type="textarea"
+   		label="COM_ISSUETRACKER_FIELD_ISSUE_SUMMARY_LABEL"
+         description="COM_ISSUETRACKER_FIELD_ISSUE_SUMMARY_DESC"
+         size="255" rows="2" cols="50" 
+         class="inputbox textarea-span"
+         required="true" />
+                  
+              <!-- type="editor" hide="articlesanywhere,readmore,pagebreak,article" -->
+      <field name="issue_description" type="textarea"
+   		label="COM_ISSUETRACKER_FIELD_ISSUE_DESCRIPTION_LABEL"
+         description="COM_ISSUETRACKER_FIELD_ISSUE_DESCRIPTION_DESC"
+         size="2000" rows="10" cols="50"
+         class="inputbox textarea-span"
+         required="true" />
+
+      <field name="additional_info" type="hidden" hide="articlesanywhere,image,readmore,pagebreak,article"
+         label="COM_ISSUETRACKER_FIELD_ISSUE_ADDITIONAL_LABEL"
+         description="COM_ISSUETRACKER_FIELD_ISSUE_ADDITIONAL_DESC"
+         size="2000" rows="10" cols="60"
+         class="inputbox textarea-span"
+         required="true" />
+
+      <field name="identified_by_person_id" type="text"
+      	label="COM_ISSUETRACKER_FIELD_IDENTIFIED_BY_PERSON_ID_LABEL"
+         description="COM_ISSUETRACKER_FIELD_IDENTIFIED_BY_PERSON_ID_DESC"
+         size="36" />
+ 
+      <field name="public" type="list" 
+         label="COM_ISSUETRACKER_VISIBILITY_LABEL"
+         description="COM_ISSUETRACKER_VISIBILITY_DESC"
+         class="inputbox" size="1" default="1">
+         <option value="1">COM_ISSUETRACKER_PUBLIC_TEXT</option>
+         <option value="0">COM_ISSUETRACKER_PRIVATE_TEXT</option>
+      </field> 
+         
+      <field name="identified_date" type="calendar" 
+         label="COM_ISSUETRACKER_FIELD_IDENTIFIED_DATE_LABEL"
+         description="COM_ISSUETRACKER_FIELD_IDENTIFIED_DATE_DESC"
+         default="" class="inputbox" size="22" filter="user_utc"
+			format="%Y-%m-%d %H:%M:%S" />
+               		
+  	  <field name="related_project_id"
+         type="issuetrackerprojectfe"
+         label="COM_ISSUETRACKER_FIELD_RELATED_PROJECT_ID_LABEL"
+         description="COM_ISSUETRACKER_FIELD_RELATED_PROJECT_ID_DESC"
+		 required="true" />
+
+      <field name="assigned_to_person_id" type="issuetrackerstaff"
+         label="COM_ISSUETRACKER_FIELD_ASSIGNED_TO_PERSON_ID_LABEL"
+         description="COM_ISSUETRACKER_FIELD_ASSIGNED_TO_PERSON_ID_DESC"
+         size="20" />
+
+      <field name="issue_type" type="issuetrackertype"
+         label="COM_ISSUETRACKER_FIELD_ISSUE_TYPE_LABEL"
+         description="COM_ISSUETRACKER_FIELD_ISSUE_TYPE_DESC"
+         size="20" />
+
+ 	  <field name="status" type="hidden"
+         label="COM_ISSUETRACKER_FIELD_STATUS_LABEL"
+         description="COM_ISSUETRACKER_FIELD_STATUS_DESC"
+         size="20" />
+
+      <field name="state" type="list"
+         label="JPUBLISHED" description="JFIELD_PUBLISHED_DESC"
+         class="inputbox" size="1" default="0">
+         <option value="1">JPUBLISHED</option>
+         <option value="0">JUNPUBLISHED</option>
+      </field>
+
+      <field name="pstate" type="list"
+         label="COM_ISSUETRACKER_PROGRESS_PUBLISHED_LABEL"
+         description="COM_ISSUETRACKER_PROGRESS_PUBLISHED_DESC"
+         class="inputbox" size="1" default="0">
+         <option value="1">JPUBLISHED</option>
+          <option value="0">JUNPUBLISHED</option>
+      </field>
+
+      <field name="paccess" default="2"
+         type="accesslevel"
+         label="COM_ISSUETRACKER_PROGRESS_ACCESS_LABEL"
+         description="COM_ISSUETRACKER_PROGRESS_ACCESS_DESC"
+         class="inputbox"/>
+
+      <field name="progresspublic" type="list"
+         label="COM_ISSUETRACKER_PROG_PUBLIC_LABEL"
+         description="COM_ISSUETRACKER_PROG_PUBLIC_DESC"
+         class="inputbox" size="1" default="1">
+         <option value="1">COM_ISSUETRACKER_PUBLIC_OPTION</option>
+         <option value="0">COM_ISSUETRACKER_PRIVATE_OPTION</option>
+      </field> 
+
+      <field name="priority" type="hidden"
+         label="COM_ISSUETRACKER_FIELD_PRIORITY_LABEL"
+         description="COM_ISSUETRACKER_FIELD_PRIORITY_DESC"
+         size="20" />
+
+      <field name="language" type="contentlanguage"
+         label="JFIELD_LANGUAGE_LABEL"
+         description="COM_ISSUETRACKER_FIELD_LANGUAGE_DESC">
+         <option value="*">JALL</option>
+      </field>
+          
+      <field name="tags" type="tag" mode="ajax" custom="allow"
+         label="JTAG" description="JTAG_DESC"
+         class="inputbox span4 small" multiple="true" />
+
+   </fieldset>
+        
+   <fieldset name="resolution" label="COM_ISSUETRACKER_ISSUE_RESOLUTION_LEGEND">
+      <field name="target_resolution_date" type="text" default=""
+         label="COM_ISSUETRACKER_FIELD_TARGET_RESOLUTION_DATE_LABEL"
+         description="COM_ISSUETRACKER_FIELD_TARGET_RESOLUTION_DATE_DESC"
+         size="22"
+         format="%Y-%m-%d"
+         filter="user_utc" />
+   
+      <field name="progress" type="textarea"
+         label="COM_ISSUETRACKER_FIELD_PROGRESS_LABEL"
+     	  description="COM_ISSUETRACKER_FIELD_PROGRESS_DESC"
+     	  rows="10" cols="50" />
+
+      <field name="actual_resolution_date" type="text" default=""
+         label="COM_ISSUETRACKER_FIELD_ACTUAL_RESOLUTION_DATE_LABEL"
+         description="COM_ISSUETRACKER_FIELD_ACTUAL_RESOLUTION_DATE_DESC"
+         size="22"
+         format="%Y-%m-%d %H:%M:%S"
+         filter="user_utc" />
+
+      <field name="resolution_summary" type="textarea"
+         label="COM_ISSUETRACKER_FIELD_RESOLUTION_SUMMARY_LABEL"
+         description="COM_ISSUETRACKER_FIELD_RESOLUTION_SUMMARY_DESC"
+     	 size="2000" rows="10" cols="50" />
+               		
+      <field name="notify" type="list"
+		 label="COM_ISSUETRACKER_FIELD_NOTIFY_LABEL"
+		 description="COM_ISSUETRACKER_FIELD_NOTIFY_DESC"
+		 size="1" default="2" >
+		 <option value="0">JNO</option>
+   		 <option value="1">JYES</option>
+         <option value="2">JGLOBAL_USE_GLOBAL</option>
+      </field>
+      
+      <field name="Filedesc" type="text" default=""
+         label="COM_ISSUETRACKER_FIELD_FILEDESC_LABEL"
+         description="COM_ISSUETRACKER_FIELD_FILEDESC_DESC" />
+      
+   </fieldset>   
+ 
+   <fields name="user_details">
+ 	  <fieldset name="userdetails" label="COM_ISSUETRACKER_ISSUE_USER_LEGEND">
+	     <field name="name" type="text"
+			description="COM_ISSUETRACKER_FIELD_NAME_DESC"
+			filter="string"
+			label="COM_ISSUETRACKER_FIELD_NAME_LABEL"
+			message="COM_ISSUETRACKER_FIELD_NAME_MESSAGE"
+			required="true"
+			size="30" />
+
+		 <field name="email" type="email"
+			description="COM_ISSUETRACKER_FIELD_EMAIL_DESC"
+			filter="string"
+			label="COM_ISSUETRACKER_FIELD_EMAIL_LABEL"
+			message="COM_ISSUETRACKER_FIELD_EMAIL_MESSAGE"
+			required="true" size="30" unique="true"
+			validate="email" />
+
+		 <field name="website" type="text"
+			description="COM_ISSUETRACKER_FIELD_WEBSITE_DESC"
+			filter="string"
+			label="COM_ISSUETRACKER_FIELD_WEBSITE_LABEL"
+			message="COM_ISSUETRACKER_FIELD_WEBSITE_MESSAGE"
+			size="50" unique="true" />
+
+		 <!-- field  name="captcha" type="captcha"
+			label="COM_ISSUETRACKER_FIELD_CAPTCHA_LABEL"
+			description="COM_ISSUETRACKER_FIELD_CAPTCHA_DESC"
+			validate="captcha" / -->
+	  </fieldset>
+   </fields>
+
+   <fieldset name="audit" label="COM_ISSUETRACKER_ISSUE_AUDIT_LEGEND">
+      <field name="created_on" type="calendar" default=""
+         label="COM_ISSUETRACKER_FIELD_CREATED_ON_LABEL"
+         description="COM_ISSUETRACKER_CREATED_ON_DESC"
+         readonly="true" size="30"
+         format="%Y-%m-%d %H:%M:%S" />
+
+      <field name="created_by" type="text"
+   	     label="COM_ISSUETRACKER_FIELD_CREATED_BY_LABEL"
+         description="COM_ISSUETRACKER_FIELD_CREATED_BY_DESC"
+         size="20" />
+
+      <field name="modified_on" type="calendar" default=""
+         label="COM_ISSUETRACKER_FIELD_MODIFIED_ON_LABEL"
+         description="COM_ISSUETRACKER_FIELD_MODIFIED_ON_DESC"
+         readonly="true" size="30"
+         format="%Y-%m-%d %H:%M:%S" />
+
+      <field name="modified_by" type="text"
+         label="COM_ISSUETRACKER_FIELD_MODIFIED_BY_LABEL"
+         description="COM_ISSUETRACKER_FIELD_MODIFIED_BY_DESC"
+         size="20" />
+	</fieldset>
+</form>

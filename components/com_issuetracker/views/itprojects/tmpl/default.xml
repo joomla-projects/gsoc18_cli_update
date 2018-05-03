@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE metadata>
+<metadata>
+   <layout title="COM_ISSUETRACKER_PROJECTS_SINGLE_RECORD" hidden="false">
+       <message><![CDATA[COM_ISSUETRACKER_PROJECTS_SINGLE_RECORD]]></message>
+   </layout>
+
+   <fields name="request">
+      <fieldset name="request" addfieldpath="/administrator/components/com_issuetracker/models/fields">
+         <field name="id" type="issuetrackerprojectfe"
+            section="com_issuetracker" default="0"
+            label="COM_ISSUETRACKER_FIELD_SINGLE_PROJECT_NAME_LABEL"
+            description="COM_ISSUETRACKER_FIELD_SINGLE_PROJECT_NAME_DESC"
+            required="true" />
+      </fieldset>
+   </fields>
+
+   <fields name="params" label="COM_ISSUETRACKER_DISPLAY_OPTIONS">
+      <fieldset name="basic">
+         <field name="show_icons"
+            type="radio" default="0" class="btn-group"
+	         label="JGLOBAL_SHOW_ICONS_LABEL"
+	         description="JGLOBAL_SHOW_ICONS_DESC">
+	         <option value="0">JHIDE</option>
+	         <option value="1">JSHOW</option>
+	      </field>
+
+	      <field name="show_print_icon"
+            type="radio" default="0" class="btn-group"
+	         label="JGLOBAL_SHOW_PRINT_ICON_LABEL"
+	         description="JGLOBAL_SHOW_PRINT_ICON_DESC">
+	         <option value="0">JHIDE</option>
+	         <option value="1">JSHOW</option>
+	      </field>
+
+	      <field name="show_email_icon"
+            type="radio" default="0" class="btn-group"
+	         label="JGLOBAL_SHOW_EMAIL_ICON_LABEL"
+	         description="JGLOBAL_SHOW_EMAIL_ICON_DESC">
+	         <option	value="0">JHIDE</option>
+	         <option	value="1">JSHOW</option>
+	      </field>
+
+         <field name="show_tags"
+            type="list"
+            label="JGLOBAL_SHOW_TAGS_LABEL"
+            description="JGLOBAL_SHOW_TAGS_DESC">
+            <option  value="">JGLOBAL_USE_GLOBAL</option>
+            <option  value="0">JHIDE</option>
+            <option  value="1">JSHOW</option>
+         </field>
+
+         <field name="show_project_id" type="radio" class="btn-group"
+             description="COM_ISSUETRACKER_FIELD_SHOW_ID_DESC"
+             label="COM_ISSUETRACKER_FIELD_SHOW_ID_LABEL"
+             default="0"
+             >
+             <option value="0">JHIDE</option>
+             <option value="1">JSHOW</option>
+          </field>
+
+         <field name="show_target_date_field" type="radio" class="btn-group"
+            description="COM_ISSUETRACKER_FIELD_SHOW_TARGET_DATE_DESC"
+            label="COM_ISSUETRACKER_FIELD_SHOW_TARGET_DATE_LABEL"
+            default="0"
+            >
+            <option value="0">JHIDE</option>
+            <option value="1">JSHOW</option>
+         </field>
+
+         <field name="show_audit_fields" type="radio" class="btn-group"
+            description="COM_ISSUETRACKER_FIELD_SHOW_AUDIT_RECS_DESC"
+            label="COM_ISSUETRACKER_FIELD_SHOW_AUDIT_RECS_LABEL"
+            default="0"
+            >
+            <option value="0">JHIDE</option>
+            <option value="1">JSHOW</option>
+         </field>
+      </fieldset>
+   </fields>
+</metadata>

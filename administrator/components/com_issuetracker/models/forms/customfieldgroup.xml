@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE form>
+<form>
+   <fieldset name="core" label="COM_ISSUETRACKER_CUSTOM_FIELD_GROUPS" addfieldpath="/administrator/components/com_issuetracker/models/fields">
+
+      <field name="id" type="text" default="0" label="JGLOBAL_FIELD_ID_LABEL"
+         readonly="true" class="readonly"
+         description="JGLOBAL_FIELD_ID_DESC" /> 
+
+      <field name="name" type="text" size="40" class="inputbox"                
+         label="COM_ISSUETRACKER_FORM_LBL_CUSTOMFIELD_GROUPNAME"
+         description="COM_ISSUETRACKER_FORM_DESC_CUSTOMFIELD_GROUPNAME" 
+         required="true" 
+         filter="safehtml" /> 
+
+     <field name="state" type="list"
+         label="JSTATUS"
+         description="JFIELD_PUBLISHED_DESC"
+         class="inputbox" size="1" default="1">
+         <option value="1">JPUBLISHED</option>
+         <option value="0">JUNPUBLISHED</option>
+      </field> 
+
+      <field name="checked_out" type="hidden" filter="unset" />
+      <field name="checked_out_time" type="hidden" filter="unset" />
+
+	</fieldset>
+ 
+  <fieldset name="audit" label="COM_ISSUETRACKER_ISSUE_AUDIT_LEGEND">
+      <field name="created_on" type="timecreated" default="" 
+         label="COM_ISSUETRACKER_FIELD_CREATED_ON_LABEL" 
+         description="COM_ISSUETRACKER_CREATED_ON_DESC"
+         readonly="true"
+         disabled="true"
+         size="30" />    
+
+      <field name="created_by" type="text"
+         label="COM_ISSUETRACKER_FIELD_CREATED_BY_LABEL"
+         description="COM_ISSUETRACKER_FIELD_CREATED_BY_DESC"
+         readonly="true"
+         disabled="true"
+         size="40" />
+
+     <field name="modified_on" type="timeupdated" default="" 
+         label="COM_ISSUETRACKER_FIELD_MODIFIED_ON_LABEL" 
+         description="COM_ISSUETRACKER_FIELD_MODIFIED_ON_DESC"
+         readonly="true"
+         disabled="true"
+         size="30" />    
+
+     <field name="modified_by" type="text"
+         label="COM_ISSUETRACKER_FIELD_MODIFIED_BY_LABEL"
+         description="COM_ISSUETRACKER_FIELD_MODIFIED_BY_DESC"
+         readonly="true"
+         disabled="true"
+         size="40" />
+   </fieldset>
+</form>

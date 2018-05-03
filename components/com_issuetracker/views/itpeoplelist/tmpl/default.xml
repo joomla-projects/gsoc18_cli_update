@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE metadata>
+<metadata>
+   <layout title="COM_ISSUETRACKER_PEOPLE_RECORDSET_LIST" hidden="false">
+      <message><![CDATA[COM_ISSUETRACKER_PEOPLE_RECORDSET_LIST]]></message>
+   </layout>
+
+   <!-- Add fields to the request variables for the layout. -->
+   <fields name="request">
+   </fields>
+	
+   <fields name="params" label="COM_ISSUETRACKER_DISPLAY_OPTIONS">
+      <fieldset name="params" label="COM_ISSUETRACKER_DISPLAY_OPTIONS">
+
+         <field name="show_icons" type="radio" default="0" class="btn-group"
+	         label="JGLOBAL_SHOW_ICONS_LABEL"
+	         description="JGLOBAL_SHOW_ICONS_DESC">
+	         <option value="0">JHIDE</option>
+	         <option value="1">JSHOW</option>
+	      </field>
+
+         <field name="show_print_icon" type="radio" default="0" class="btn-group"
+	         label="JGLOBAL_SHOW_PRINT_ICON_LABEL"
+	         description="JGLOBAL_SHOW_PRINT_ICON_DESC">
+	         <option value="0">JHIDE</option>
+	         <option value="1">JSHOW</option>
+	      </field>
+
+         <field name="show_email_icon" type="radio" default="0" class="btn-group"
+	         label="JGLOBAL_SHOW_EMAIL_ICON_LABEL"
+	         description="JGLOBAL_SHOW_EMAIL_ICON_DESC">
+	         <option	value="0">JHIDE</option>
+	         <option	value="1">JSHOW</option>
+	      </field>
+
+         <field name="show_linked_child_detail" type="radio" class="btn-group"
+            description="COM_ISSUETRACKER_FIELD_SHOW_LINKED_CHILD_DESC"
+            label="COM_ISSUETRACKER_FIELD_SHOW_LINKED_CHILD_LABEL"
+            default="0">
+            <option value="0">JHIDE</option>
+            <option value="1">JSHOW</option>
+         </field>
+ 
+         <field name="show_people_id" type="radio" class="btn-group"
+             description="COM_ISSUETRACKER_FIELD_SHOW_ID_DESC"
+             label="COM_ISSUETRACKER_FIELD_SHOW_ID_LABEL"
+             default="0">
+             <option value="0">JHIDE</option>
+             <option value="1">JSHOW</option>
+          </field>
+     
+          <field name="show_email_field" type="radio" class="btn-group"
+             description="COM_ISSUETRACKER_FIELD_SHOW_EMAIL_DESC"
+             label="COM_ISSUETRACKER_FIELD_SHOW_EMAIL_LABEL"
+             default="0">
+             <option value="0">JHIDE</option>
+             <option value="1">JSHOW</option>
+          </field>
+        
+          <field name="show_username_field" type="radio" class="btn-group"
+             description="COM_ISSUETRACKER_FIELD_SHOW_USERNAME_DESC"
+             label="COM_ISSUETRACKER_FIELD_SHOW_USERNAME_LABEL"
+             default="0">
+             <option value="0">JHIDE</option>
+             <option value="1">JSHOW</option>
+          </field>
+
+         <field name="show_project_field" type="radio" class="btn-group"
+             description="COM_ISSUETRACKER_FIELD_SHOW_PROJECT_NAME_DESC"
+             label="COM_ISSUETRACKER_FIELD_SHOW_PROJECT_NAME_LABEL"
+             default="0">
+             <option value="0">JHIDE</option>
+             <option value="1">JSHOW</option>
+          </field>
+
+          <field name="show_only_staff_field" type="radio" class="btn-group"
+             description="COM_ISSUETRACKER_FIELD_SHOW_ONLY_STAFF_DESC"
+             label="COM_ISSUETRACKER_FIELD_SHOW_ONLY_STAFF_LABEL" default="1">
+             <option value="0">JNO</option>
+             <option value="1">JYES</option>
+          </field>
+
+          <field name="showl_role_filter" type="radio" class="btn-group"
+                 description="COM_ISSUETRACKER_FIELD_SHOW_ROLE_FILTER_DESC"
+                 label="COM_ISSUETRACKER_FIELD_SHOW_ROLE_FILTER_LABEL" default="0">
+              <option value="0">JNO</option>
+              <option value="1">JYES</option>
+          </field>
+
+          <field name="show_audit_fields" type="radio" class="btn-group"
+             description="COM_ISSUETRACKER_FIELD_SHOW_AUDIT_RECS_DESC"
+             label="COM_ISSUETRACKER_FIELD_SHOW_AUDIT_RECS_LABEL"
+             default="0">
+             <option value="0">JHIDE</option>
+             <option value="1">JSHOW</option>
+          </field>
+      </fieldset>
+
+      <fieldset name="advanced">
+
+          <field name="ordering" type="sql" default="ordering"
+                 label="COM_ISSUETRACKER_ORDERING_LABEL"
+                 description="COM_ISSUETRACKER_ORDERING_DESC"
+                 key_field="value" value_field="value"
+                 query="select 'ordering' AS value UNION (SELECT distinct column_name AS value from information_schema.columns where table_name like '%_it_people' order by value)">
+          </field>
+
+          <field name="direction" type="radio" default="ASC" class="btn-group"
+                 label="COM_ISSUETRACKER_DIRECTION_LABEL"
+                 description="COM_ISSUETRACKER_DIRECTION_DESC" >
+              <option value="DESC">COM_ISSUETRACKER_DESCENDING_TEXT</option>
+              <option value="ASC">COM_ISSUETRACKER_ASCENDING_TEXT</option>
+          </field>
+         <field name="tableclass_sfx" type="text" default="adminlist" 
+            label="COM_ISSUETRACKER_TABLECLASS_SFX_LABEL" 
+            description="COM_ISSUETRACKER_TABLECLASS_SFX_DESC" />
+      </fieldset>
+      
+   </fields>        
+
+</metadata>

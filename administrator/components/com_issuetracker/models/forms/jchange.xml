@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE form>
+<form>
+	<fieldset>
+      <!-- field name="id" type="hidden" filter="integer" / -->
+
+      <field name="id" type="text" default="0"
+               label="JGLOBAL_FIELD_ID_LABEL"
+               readonly="true" class="readonly"
+               description="JGLOBAL_FIELD_ID_DESC" />
+
+      <field name="table_name" type="text"
+         label="COM_ISSUETRACKER_TABLE_NAME"
+         description="COM_ISSUETRACKER_FORM_DESC_JCHANGE_TABLE_NAME"
+         readonly="true"
+         filter="string"
+         size="255"
+         maxlength="255" />
+
+      <field name="component" type="text"
+         label="COM_ISSUETRACKER_COMPONENT"
+         description="COM_ISSUETRACKER_FORM_DESC_JCHANGE_COMPONENT"
+         default="Issue Tracker"
+         filter="string"
+         size="100"
+         maxlength="255"
+         readonly="true" />
+
+      <field name="row_key" type="text" size="40" class="inputbox"
+         label="COM_ISSUETRACKER_FORM_LBL_JCHANGE_ROW_KEY"
+         description="COM_ISSUETRACKER_FORM_DESC_JCHANGE_ROW_KEY"
+         default="0"
+         readonly="true"
+         filter="safehtml" />
+
+      <field name="row_key_link" type="textbox"
+         class="inputbox"
+         filter="safehtml"
+         readonly="true"
+         label="COM_ISSUETRACKER_FORM_LBL_JCHANGE_ROW_KEY_LINK"
+         description="COM_ISSUETRACKER_FORM_DESC_JCHANGE_ROW_KEY_LINK"  />
+
+      <field name="column_name" type="text"
+         readonly="true"
+         size="255"
+         maxlength="255"
+         label="COM_ISSUETRACKER_FORM_LBL_JCHANGE_COLUMN_NAME"
+         description="COM_ISSUETRACKER_FORM_DESC_JCHANGE_COLUMN_NAME"  />
+
+      <field name="column_type" type="text"
+         class="inputbox"
+         filter="safehtml"
+         readonly="true"
+         default="text"
+         label="COM_ISSUETRACKER_FORM_LBL_JCHANGE_COLUMN_TYPE"
+         description="COM_ISSUETRACKER_FORM_DESC_JCHANGE_COLUMN_TYPE"  />
+
+      <field name="state" type="list"
+         label="JPUBLISHED" description="JFIELD_PUBLISHED_DESC"
+         class="inputbox" size="1" default="0">
+         <option value="1">JPUBLISHED</option>
+         <option value="0">JUNPUBLISHED</option>
+      </field>
+
+      <field name="action" type="text"
+         class="inputbox"
+         filter="safehtml"
+         readonly="true"
+         default="Insert"
+         label="COM_ISSUETRACKER_ACTION"
+         description="COM_ISSUETRACKER_FORM_DESC_JCHANGE_ACTION"  />
+
+      <field name="old_value" type="textarea"
+         class="inputbox textarea-span"
+         readonly="true"
+         rows="8"
+         filter="raw"
+         label="COM_ISSUETRACKER_OLD_VALUE"
+         description="COM_ISSUETRACKER_FORM_DESC_JCHANGE_OLD_VALUE"  />
+
+      <field name="new_value" type="textarea"
+         class="inputbox textarea-span"
+         filter="raw"
+         readonly="true"
+         rows="8"
+         label="COM_ISSUETRACKER_NEW_VALUE"
+         description="COM_ISSUETRACKER_FORM_DESC_JCHANGE_NEW_VALUE"  />
+
+      <field name="change_by" type="createdby" default=""
+         readonly="true"
+         label="COM_ISSUETRACKER_CHANGED_BY"
+         description="COM_ISSUETRACKER_FORM_DESC_JCHANGE_CHANGED_BY"  />
+
+      <field name="change_date" type="calendar"
+         label="COM_ISSUETRACKER_FORM_LBL_JCHANGE_CHANGE_DATE"
+         description="COM_ISSUETRACKER_FORM_DESC_JCHANGE_CHANGE_DATE"
+         format="%Y-%m-%d %H:%M:%S"
+         readonly="true"
+         size="30" />
+
+	</fieldset>
+
+</form>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE metadata>
+<metadata>
+	<layout title="COM_ISSUETRACKER_FORM_VIEW_DEFAULT_TITLE" option="COM_ISSUETRACKER_FORM_VIEW_DEFAULT_OPTION">
+		<help
+			key = "JHELP_MENUS_MENU_ITEM_ARTICLE_CREATE"
+		/>
+		<message>
+			<![CDATA[COM_ISSUETRACKER_FORM_VIEW_DEFAULT_DESC]]>
+		</message>
+	</layout>
+
+   <fields name="params">
+      <fieldset name="basic" addfieldpath="/administrator/components/com_issuetracker/models/fields">
+         <field name="projects" type="issuetrackerproject"
+            section="com_issuetracker" default="0" multiple="multiple"
+            label="COM_ISSUETRACKER_FIELD_PROJECT_LIST_LABEL"
+            description="COM_ISSUETRACKER_FIELD_PROJECT_LIST_DESC"
+            required="true" />
+
+         <field name="show_details_section" type="radio" default="1" class="btn-group"
+            label="COM_ISSUETRACKER_FIELD_HIDE_DETAIL_LABEL"
+            description="COM_ISSUETRACKER_FIELD_HIDE_DETAIL_DESC" >
+            <option value="0">JHIDE</option>
+            <option value="1">JSHOW</option>
+         </field>
+ 
+         <field name="show_project_name" type="radio" default="1" class="btn-group"
+             label="COM_ISSUETRACKER_FIELD_SHOW_PROJECT_NAME_LABEL"
+             description="COM_ISSUETRACKER_FIELD_SHOW_PROJECT_NAME_DESC" >
+             <option value="0">JHIDE</option>
+             <option value="1">JSHOW</option>
+          </field>
+
+         <field name="show_visibility" type="radio" default="1" class="btn-group"
+             label="COM_ISSUETRACKER_FIELD_SHOW_VISIBILITY_LABEL"
+             description="COM_ISSUETRACKER_FIELD_SHOW_VISIBILITY_DESC" >
+             <option value="0">JHIDE</option>
+             <option value="1">JSHOW</option>
+          </field>
+          
+          <!-- Was using JGLOBAL_SHOW_TAGS -->
+          <field name="show_tags" type="list"
+             label="COM_ISSUETRACKER_FIELD_SHOW_TAGS_LABEL"
+             description="COM_ISSUETRACKER_FIELD_SHOW_TAGS_DESC">
+             <option  value="">JGLOBAL_USE_GLOBAL</option>
+             <option  value="0">JHIDE</option>
+             <option  value="1">JSHOW</option>
+          </field>
+
+      </fieldset>
+   </fields>   
+</metadata>

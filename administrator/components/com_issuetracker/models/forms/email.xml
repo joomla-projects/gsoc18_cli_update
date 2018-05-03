@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE form>
+<form>
+   <fieldset name="core" label="COM_ISSUETRACKER_ISSUE_DEFAULT_LEGEND">
+      <field name="type" type="text"
+			label="COM_ISSUETRACKER_FIELD_EMAIL_FIELD_TYPE"
+			description="COM_ISSUETRACKER_FIELD_EMAIL_FIELD_TYPE_DESC"
+			size="60"
+			required="true" />
+
+     <field name="description" type="editor" class="inputbox"
+        label="COM_ISSUETRACKER_DESCRIPTION" 
+        description="COM_ISSUETRACKER_FIELD_EMAIL_DESCRIPTION_DESC"
+        rows="3" cols="80" hide="true" maxlength="1024"
+        height="50" width="100%"
+        required="true" buttons="false"
+        filter="JComponentHelper::filterText" /> 
+
+     <field name="subject" type="text"
+	     label="COM_ISSUETRACKER_FIELD_EMAIL_FIELD_SUBJECT"
+	     description="COM_ISSUETRACKER_FIELD_EMAIL_FIELD_SUBJECT_DESC"
+	     size="60"
+	  	  required="true" />
+     
+	  <field name="body" type="editor" class="inputbox"
+		  label="COM_ISSUETRACKER_FIELD_EMAIL_FIELD_BODY"
+		  description="COM_ISSUETRACKER_FIELD_EMAIL_FIELD_BODY_DESC"
+		  buttons="false"
+        maxlength="1024" 
+        filter="raw"
+		  required="true" />
+     
+	   <field name="id" type="hidden" />
+   
+      <field name="state" type="list" label="JSTATUS"
+         description="JFIELD_PUBLISHED_DESC"
+         class="inputbox" size="1" default="1" >
+         <option value="1">JPUBLISHED</option>
+         <option value="0">JUNPUBLISHED</option>
+      </field> 
+
+      <field name="checked_out" type="hidden" filter="unset" />
+      <field name="checked_out_time" type="hidden" filter="unset" />
+   </fieldset>
+   
+   <fieldset name="audit_details" label="COM_ISSUETRACKER_ISSUE_AUDIT_LEGEND">
+      <field name="created_on" type="calendar" default="" 
+          label="COM_ISSUETRACKER_FIELD_CREATED_ON_LABEL"
+          size="30" format="%Y-%m-%d %H:%M:%S"
+          readonly="true"
+          disabled="true"
+          description="COM_ISSUETRACKER_FIELD_CREATED_ON_DESC" />    
+
+      <field name="created_by" type="text"
+          label="COM_ISSUETRACKER_FIELD_CREATED_BY_LABEL"
+          description="COM_ISSUETRACKER_FIELD_CREATED_BY_DESC"
+          size="40"
+          readonly="true"
+          disabled="true" />
+
+      <field name="modified_on" type="calendar" default="" 
+          label="COM_ISSUETRACKER_FIELD_MODIFIED_ON_LABEL" 
+          description="COM_ISSUETRACKER_FIELD_MODIFIED_ON_DESC"
+          size="30" format="%Y-%m-%d %H:%M:%S"
+          readonly="true"
+          disabled="true" />    
+
+      <field name="modified_by" type="text"
+           label="COM_ISSUETRACKER_FIELD_MODIFIED_BY_LABEL"
+          description="COM_ISSUETRACKER_FIELD_MODIFIED_BY_DESC"
+          size="40"
+          readonly="true"
+          disabled="true" />
+   </fieldset>
+</form>

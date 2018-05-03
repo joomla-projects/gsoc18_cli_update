@@ -754,8 +754,17 @@ class User extends \JObject
 				$iAmRehashingSuperadmin = true;
 			}
 
+			// Check if we are using a CLI application
+			// @todo this should only be a temporary solution. Need to find how can add super user on CLI without pass access rights check this way.
+			$isCli = false;
+
+			if (\JFactory::getApplication()->input->get('format') === 'cli')
+			{
+				$isCli = true;
+			}
+
 			// We are only worried about edits to this account if I am not a Super Admin.
-			if ($iAmSuperAdmin != true && $iAmRehashingSuperadmin != true)
+			if ($iAmSuperAdmin != true && $iAmRehashingSuperadmin != true && $isCli != true)
 			{
 				// I am not a Super Admin, and this one is, so fail.
 				if (!$isNew && Access::check($this->id, 'core.admin'))

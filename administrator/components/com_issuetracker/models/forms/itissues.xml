@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE form>
+<form>
+   <fieldset name="core" label="COM_ISSUETRACKER_ISSUE_DEFAULT_LEGEND" addfieldpath="/administrator/components/com_issuetracker/models/fields">
+		
+      <field name="id" type="hidden" filter="integer" />
+
+      <field name="alias" type="hidden" default="" 
+         label="COM_ISSUETRACKER_FIELD_ALIAS_LABEL"
+         description="COM_ISSUETRACKER_FIELD_ALIAS_DESC"
+         size="10" />
+         
+      <field name="issue_summary" type="editor"
+   	   label="COM_ISSUETRACKER_FIELD_ISSUE_SUMMARY_LABEL"
+	      description="COM_ISSUETRACKER_FIELD_ISSUE_SUMMARY_DESC"
+         rows="3" cols="80" hide="true" maxlength="250"
+         height="50" width="100%"
+         required="true" buttons="false"
+         filter="JComponentHelper::filterText" /> 
+
+      <field name="issue_description" type="editor"
+         label="COM_ISSUETRACKER_FIELD_ISSUE_DESCRIPTION_LABEL"
+         description="COM_ISSUETRACKER_FIELD_ISSUE_DESCRIPTION_DESC"
+         rows="3" cols="80" maxlength="4000" hide="articlesanywhere,modulesanywhere,tabs,tabber,readmore,pagebreak,article"
+	      required="true" buttons="true"
+	      filter="safehtml" /> 
+
+      <field name="identified_by_person_id" type="issuetrackerperson" 
+         label="COM_ISSUETRACKER_FIELD_IDENTIFIED_BY_PERSON_ID_LABEL" 
+         description="COM_ISSUETRACKER_FIELD_IDENTIFIED_BY_PERSON_ID_DESC"               
+         required="false" 
+         filter="integer" />
+
+      <field name="identified_date" type="calendar" default="" 
+         label="COM_ISSUETRACKER_FIELD_IDENTIFIED_DATE_LABEL" 
+         description="COM_ISSUETRACKER_IDENTIFIED_DATE_DESC" 
+         size="30" filter="user_utc"
+         format="%Y-%m-%d %H:%M:%S" />    
+
+      <field name="related_project_id" type="issuetrackerprojectbe" 
+         label="COM_ISSUETRACKER_FIELD_RELATED_PROJECT_ID_LABEL" 
+         description="COM_ISSUETRACKER_FIELD_RELATED_PROJECT_ID_DESC"               
+         required="false" 
+         filter="integer" />
+
+      <field name="assigned_to_person_id" type="issuetrackerstaff" 
+         label="COM_ISSUETRACKER_FIELD_ASSIGNED_TO_PERSON_ID_LABEL" 
+         description="COM_ISSUETRACKER_FIELD_ASSIGNED_TO_PERSON_ID_DESC"               
+         required="false" 
+         filter="integer" />
+
+      <field name="status" type="issuetrackerstatus"
+         label="COM_ISSUETRACKER_FIELD_STATUS_LABEL"
+         description="COM_ISSUETRACKER_FIELD_STATUS_DESC"
+         required="true" 
+         filter="integer" />
+  
+      <field name="priority" type="issuetrackerpriority"
+         label="COM_ISSUETRACKER_FIELD_PRIORITY_LABEL"
+         description="COM_ISSUETRACKER_FIELD_PRIORITY_DESC"
+         required="true" 
+         filter="integer" />
+ 
+      <field name="public" type="list"
+         label="COM_ISSUETRACKER_PUBLIC_LABEL" 
+         description="COM_ISSUETRACKER_PUBLIC_DESC"
+         class="inputbox" size="1" default="1">
+         <option value="1">COM_ISSUETRACKER_PUBLIC_OPTION</option>
+         <option value="0">COM_ISSUETRACKER_PRIVATE_OPTION</option>
+      </field> 
+
+      <field name="progresspublic" type="list"
+         label="COM_ISSUETRACKER_PROG_PUBLIC_LABEL" 
+         description="COM_ISSUETRACKER_PROG_PUBLIC_DESC"
+         class="inputbox" size="1" default="1">
+         <option value="1">COM_ISSUETRACKER_PUBLIC_OPTION</option>
+         <option value="0">COM_ISSUETRACKER_PRIVATE_OPTION</option>
+      </field> 
+
+      <field name="state" type="list"
+         label="JPUBLISHED" description="JFIELD_PUBLISHED_DESC"
+         class="inputbox" size="1" default="0">
+         <option value="1">JPUBLISHED</option>
+         <option value="0">JUNPUBLISHED</option>
+      </field> 
+
+     <field name="pstate" type="list"
+         label="JPUBLISHED" description="COM_ISSUETRACKER_PROGRESS_PUBLISHED_DESC"
+         class="inputbox" size="1" default="0">
+         <option value="1">JPUBLISHED</option>
+         <option value="0">JUNPUBLISHED</option>
+      </field> 
+
+      <field name="issue_type" type="issuetrackertype" 
+         label="COM_ISSUETRACKER_FIELD_ISSUE_TYPE_LABEL" 
+         description="COM_ISSUETRACKER_FIELD_ISSUE_TYPE_DESC"               
+         required="true" 
+         filter="integer" />
+
+      <field name="checked_out" type="hidden" filter="unset" />
+      <field name="checked_out_time" type="hidden" filter="unset" />
+
+      <field name="access"
+         default="1"
+         type="accesslevel"
+         label="JFIELD_ACCESS_LABEL"
+         description="JFIELD_ACCESS_DESC"
+         class="inputbox"/>
+
+      <field name="paccess"
+         type="accesslevel"
+         default="2"
+         label="JFIELD_ACCESS_LABEL"
+         description="COM_ISSUETRACKER_PROGRESS_ACCESS_DESC"
+         class="inputbox"/>
+      
+      <field name="tags" type="tag"
+         label="JTAG" description="JTAG_DESC"
+         class="inputbox span12 small" multiple="true" />
+        
+   </fieldset>
+        
+   <fieldset name="resolution" label="COM_ISSUETRACKER_ISSUE_RESOLUTION_LEGEND" addfieldpath="/administrator/components/com_issuetracker/models/fields">
+
+      <field name="target_resolution_date" type="calendar" default="" 
+         label="COM_ISSUETRACKER_FIELD_TARGET_RESOLUTION_DATE_LABEL" 
+         description="COM_ISSUETRACKER_FIELD_TARGET_RESOLUTION_DATE_DESC"
+         size="30" filter="user_utc" />    
+   
+      <field name="progress" type="editor"
+	     label="COM_ISSUETRACKER_FIELD_PROGRESS_LABEL"
+        description="COM_ISSUETRACKER_FIELD_PROGRESS_DESC"
+        rows="3" cols="80" hide="true" maxlength="240"
+        required="false" buttons="false"
+        filter="safehtml" /> 
+
+      <field name="actual_resolution_date" type="calendar" default="" 
+         label="COM_ISSUETRACKER_FIELD_ACTUAL_RESOLUTION_DATE_LABEL" 
+         description="COM_ISSUETRACKER_FIELD_ACTUAL_RESOLUTION_DATE_DESC"
+         size="30" filter="user_utc" />    
+
+     <field name="resolution_summary" type="editor"
+	      label="COM_ISSUETRACKER_FIELD_RESOLUTION_SUMMARY_LABEL"
+         description="COM_ISSUETRACKER_FIELD_RESOLUTION_SUMMARY_DESC"
+         rows="3" cols="80" hide="true" maxlength="240"
+         required="false" buttons="false"
+         filter="safehtml" /> 
+       	              		
+   </fieldset>	
+  
+   <fieldset name="audit" label="COM_ISSUETRACKER_ISSUE_AUDIT_LEGEND">
+      <field name="created_on" type="calendar" default="" 
+         label="COM_ISSUETRACKER_FIELD_CREATED_ON_LABEL" 
+         description="COM_ISSUETRACKER_CREATED_ON_DESC"
+         readonly="true" format="%Y-%m-%d %H:%M:%S"
+         disabled="true"
+         size="30" />    
+
+      <field name="created_by" type="text"
+         label="COM_ISSUETRACKER_FIELD_CREATED_BY_LABEL"
+ 	      description="COM_ISSUETRACKER_FIELD_CREATED_BY_DESC"
+         readonly="true"
+         disabled="true"
+         size="40" />
+
+     <field name="modified_on" type="calendar" default="" 
+         label="COM_ISSUETRACKER_FIELD_MODIFIED_ON_LABEL" 
+         description="COM_ISSUETRACKER_FIELD_MODIFIED_ON_DESC"
+         readonly="true" format="%Y-%m-%d %H:%M:%S"
+         disabled="true"
+         size="30" />    
+
+     <field name="modified_by" type="text"
+      	label="COM_ISSUETRACKER_FIELD_MODIFIED_BY_LABEL"
+         description="COM_ISSUETRACKER_FIELD_MODIFIED_BY_DESC"
+         readonly="true"
+         disabled="true"
+         size="40" />
+   </fieldset>
+   
+   <fieldset name="accesscontrol">
+      <field name="asset_id" type="hidden" filter="unset" />
+
+      <field name="rules"
+         type="rules"
+         label="JFIELD_RULES_LABEL"
+         translate_label="false"
+         filter="rules"
+         validate="rules"
+         class="inputbox"
+         component="com_issuetracker"
+         section="itissues" />
+    </fieldset>
+
+   <fields name="metadata">
+      <fieldset name="jmetadata" label="JGLOBAL_FIELDSET_METADATA_OPTIONS">
+         <!-- field name="tags" type="tag"
+            label="JTAG" description="JTAG_DESC"
+            class="inputbox" multiple="true" / -->
+      </fieldset>
+   </fields>    
+</form>

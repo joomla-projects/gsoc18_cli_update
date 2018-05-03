@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE form>
+<form>
+	<fieldset name="details">
+
+		<field name="compressed" type="radio" class="btn-group btn-group-yesno"
+			label="COM_ISSUETRACKER_FIELD_COMPRESSED_LABEL"
+			description="COM_ISSUETRACKER_FIELD_COMPRESSED_DESC"
+			default="0" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+
+      <field name="basename" type="list" default="__SITE__"
+         label="COM_ISSUETRACKER_FIELD_BASENAME_LABEL" description="COM_ISSUETRACKER_FIELD_BASENAME_DESC" >
+         <option value="__SITE__">COM_ISSUETRACKER_SITE_FILE_BASE</option>
+         <option value="__IDENTIFIERID__">COM_ISSUETRACKER_IDENTIFIERID_FILE_BASE</option>
+         <option value="__IDENTIFIERNAME__">COM_ISSUETRACKER_IDENTIFIERNAME_FILE_BASE</option>
+         <option value="__PROJECTID__">COM_ISSUETRACKER_PROJECTID_FILE_BASE</option>
+         <option value="__PROJECTNAME__">COM_ISSUETRACKER_PROJECTNAME_FILE_BASE</option>
+         <option value="__SEARCH__">COM_ISSUETRACKER_SEARCH_FILE_BASE</option>
+         <option value="__STATEID__">COM_ISSUETRACKER_STATEID_FILE_BASE</option>
+         <option value="__STATENAME__">COM_ISSUETRACKER_STATENAME_FILE_BASE</option>
+         <option value="__ASSIGNEDID__">COM_ISSUETRACKER_ASSIGNEDID_FILE_BASE</option>
+         <option value="__ASSIGNEDNAME__">COM_ISSUETRACKER_ASSIGNEDNAME_FILE_BASE</option>
+         <option value="__PRIORITYID__">COM_ISSUETRACKER_PRIORITYID_FILE_BASE</option>
+         <option value="__PRIORITYNAME__">COM_ISSUETRACKER_PRIORITYNAME_FILE_BASE</option>
+         <option value="__STATUSID__">COM_ISSUETRACKER_STATUSID_FILE_BASE</option>
+         <option value="__STATUSNAME__">COM_ISSUETRACKER_STATUSNAME_FILE_BASE</option>
+         <option value="__TAG__">COM_ISSUETRACKER_TAG_FILE_BASE</option>
+         <option value="__TYPEID__">COM_ISSUETRACKER_TYPEID_FILE_BASE</option>
+         <option value="__TYPENAME__">COM_ISSUETRACKER_TYPENAME_FILE_BASE</option>
+         <option value="__CREATEDON__">COM_ISSUETRACKER_CREATEDON_FILE_BASE</option>
+         <option value="__CREATEDBY__">COM_ISSUETRACKER_CREATEDBY_FILE_BASE</option>
+         <option value="__MODIFIEDON__">COM_ISSUETRACKER_MODIFIEDON_FILE_BASE</option>
+         <option value="__MODIFIEDBY__">COM_ISSUETRACKER_MODIFIEDBY_FILE_BASE</option>
+      </field>
+   </fieldset>
+</form>
