@@ -31,16 +31,21 @@ class SessionGcCommand extends AbstractCommand
 	/**
 	 * Instantiate the command.
 	 *
+	 * Having a constructor here doesn't follow the way other commands are written
+	 * and its disturbing the Dynamic way of loading the commands as its requiring argument to be passed to
+	 * constructor
+	 *
 	 * @param   SessionInterface  $session  The session object.
 	 *
 	 * @since   4.0.0
 	 */
-	public function __construct(SessionInterface $session)
-	{
-		$this->session = $session;
+//	public function __construct(SessionInterface $session)
+//	{
+//		$this->session = $session;
+//
+//		parent::__construct();
+//	}
 
-		parent::__construct();
-	}
 
 	/**
 	 * Execute the command.
