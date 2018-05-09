@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE form>
+<form>
+   <fieldset addfieldpath="/administrator/components/com_issuetracker/models/fields">
+
+      <field name="id" type="hidden" filter="integer" />
+
+      <field name="table_name" type="text"
+         label="COM_ISSUETRACKER_TABLE_NAME"
+         description="COM_ISSUETRACKER_FORM_DESC_JTRIGGER_TABLE_NAME"
+         readonly="true"
+         filter="string"
+         size="100"
+         maxlength="255" />
+
+      <field name="trigger_name" type="text"
+         label="COM_ISSUETRACKER_FORM_LBL_JTRIGGER_TRIGGER_NAME"
+         description="COM_ISSUETRACKER_FORM_DESC_JTRIGGER_TRIGGER_NAME"
+         size="100" maxlength="255"
+         readonly="true" />
+
+      <field name="trigger_schema" type="text"
+         label="COM_ISSUETRACKER_FORM_LBL_JTRIGGER_TRIGGER_SCHEMA"
+         description="COM_ISSUETRACKER_FORM_DESC_JTRIGGER_TRIGGER_SCHEMA"
+         readonly="true" />
+
+      <field name="trigger_type" type="list" size="1" class="inputbox"
+         label="COM_ISSUETRACKER_FORM_LBL_JTRIGGER_TRIGGER_TYPE"
+         description="COM_ISSUETRACKER_FORM_DESC_JTRIGGER_TRIGGER_TYPE"
+         default="AFTER"
+         readonly="true" > 
+         <option value="AFTER">COM_ISSUETRACKER_AFTER</option>
+         <option value="BEFORE">COM_ISSUETRACKER_BEFORE</option>
+      </field>
+
+      <field name="trigger_event" type="list" size="1"
+         class="inputbox"
+         default="INSERT"
+         readonly="true"
+         label="COM_ISSUETRACKER_FORM_LBL_JTRIGGER_TRIGGER_EVENT"
+         description="COM_ISSUETRACKER_FORM_DESC_JTRIGGER_TRIGGER_EVENT" >
+         <option value="INSERT">COM_ISSUETRACKER_INSERT</option>
+         <option value="DELETE">COM_ISSUETRACKER_DELETE</option>
+         <option value="UPDATE">COM_ISSUETRACKER_UPDATE</option>
+      </field>
+      
+      <field name="columns" type="columns"
+         default="(array) All"
+         readonly="false"
+         multiple="multiple"
+         required="true"
+         label="COM_ISSUETRACKER_FORM_LBL_JTRIGGER_COLUMNS"
+         description="COM_ISSUETRACKER_FORM_DESC_JTRIGGER_COLUMNS"  />
+
+      <field name="applied" type="list"
+         class="inputbox" size="1" default="0"
+         label="COM_ISSUETRACKER_ENABLED"
+         description="COM_ISSUETRACKER_FORM_DESC_JTRIGGER_APPLIED" >
+         <option value="1">COM_ISSUETRACKER_ENABLED</option>
+         <option value="0">COM_ISSUETRACKER_DISABLED</option>
+      </field>
+
+      <field name="state" type="list"
+         label="JPUBLISHED" description="JFIELD_PUBLISHED_DESC"
+         class="inputbox" size="1" default="0">
+         <option value="1">JPUBLISHED</option>
+         <option value="0">JUNPUBLISHED</option>
+      </field>
+
+      <field name="trigger_text" type="textarea"
+         class="inputbox textarea-span"
+         readonly="true"
+         filter="raw"
+         rows="12"
+         label="COM_ISSUETRACKER_FORM_LBL_JTRIGGER_TRIGGER_TEXT"
+         description="COM_ISSUETRACKER_FORM_DESC_JTRIGGER_TRIGGER_TEXT" />
+         
+      <!-- field name="trigger_text" type="editor"
+        label="COM_ISSUETRACKER_FORM_LBL_JTRIGGER_TRIGGER_TEXT"
+        description="COM_ISSUETRACKER_FORM_DESC_JTRIGGER_TRIGGER_TEXT"
+        rows="3" cols="80" hide="true" maxlength="240"
+        required="false" buttons="false"
+        filter="safehtml" / -->
+
+      <field name="changed_by" type="createdby" default=""
+         readonly="true"
+         label="COM_ISSUETRACKER_CHANGED_BY"
+         description="COM_ISSUETRACKER_FORM_DESC_JTRIGGER_CHANGED_BY" />
+
+      <field name="changed_by_alias" type="text" default=""
+         readonly="true"
+         label="COM_ISSUETRACKER_FORM_LBL_JTRIGGER_CHANGED_BY_ALIAS"
+         description="COM_ISSUETRACKER_FORM_DESC_JTRIGGER_CHANGED_BY_ALIAS"  />
+
+      <field name="changed_on" type="calendar"
+         label="COM_ISSUETRACKER_FORM_LBL_JTRIGGER_CHANGED_ON"
+         description="COM_ISSUETRACKER_FORM_DESC_JTRIGGER_CHANGED_ON"
+         readonly="true"
+         filter="raw" />
+
+	</fieldset>
+
+</form>

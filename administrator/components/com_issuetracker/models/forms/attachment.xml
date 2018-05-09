@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE form>
+<form>
+	<fieldset>
+      <field name="id" type="text" default="0" 
+         label="JGLOBAL_FIELD_ID_LABEL"
+         readonly="true" class="readonly"
+         description="JGLOBAL_FIELD_ID_DESC" /> 
+
+      <field name="issue_id" type="sql" class="inputbox"
+         label="COM_ISSUETRACKER_FORM_LBL_ATTACHMENT_ISSUE_ID"
+         description="COM_ISSUETRACKER_FORM_DESC_ATTACHMENT_ISSUE_ID"
+         query="SELECT '-' AS value, ' - Select associated issue - ' AS title UNION SELECT alias AS value, CONCAT_WS(' - ',alias,issue_summary) AS title FROM #__it_issues"
+         key_field="value" value_field="title"
+       />
+
+      <field name="title" type="text" size="40" class="inputbox"                
+         label="COM_ISSUETRACKER_FORM_LBL_FILE_TITLE"
+         description="COM_ISSUETRACKER_FORM_DESC_FILE_TITLE" 
+         required="true" 
+         filter="safehtml" /> 
+
+      <field name="description" type="editor" buttons="true"
+         class="inputbox"
+         filter="JComponentHelper::filterText"
+         required="false" 
+         hide="articlesanywhere,modulesanywhere,tabs,tabber,readmore,pagebreak,article"
+         label="COM_ISSUETRACKER_FORM_LBL_FILE_DESCRIPTION"
+         description="COM_ISSUETRACKER_FORM_DESC_FILE_DESCRIPTION"  /> 
+
+      <field name="filepath" type="text" class="inputbox"
+         size="60"
+         filter="safehtml"
+         required="false"
+         readonly="true"
+         label="COM_ISSUETRACKER_FORM_LBL_FILE_FILEPATH"
+         description="COM_ISSUETRACKER_FORM_DESC_FILE_FILEPATH"  /> 
+
+      <field name="filename" type="text" 
+         label="COM_ISSUETRACKER_FORM_LBL_FILE_FILENAME" 
+         description="COM_ISSUETRACKER_FORM_DESC_FILE_FILENAME" 
+         class="inputbox" 
+         readonly="true"
+         size="40" 
+         filter="safehtml" />
+
+      <field name="filetype" type="text" size="40" class="inputbox"               
+         label="COM_ISSUETRACKER_FORM_LBL_ATTACHMENT_FILETYPE"
+         description="COM_ISSUETRACKER_FORM_DESC_ATTACHMENT_FILETYPE"
+         readonly="true"
+         filter="safehtml" /> 
+
+      <field name="hashname" type="text" size="40" class="inputbox"               
+         label="COM_ISSUETRACKER_FORM_LBL_ATTACHMENT_HASHNAME"
+         description="COM_ISSUETRACKER_FORM_DESC_ATTACHMENT_HASHNAME"
+         readonly="true"
+         filter="safehtml" /> 
+
+      <field name="size" type="text" size="20" class="inputbox"               
+         label="COM_ISSUETRACKER_FORM_LBL_ATTACHMENT_SIZE"
+         description="COM_ISSUETRACKER_FORM_DESC_ATTACHMENT_SIZE"
+         readonly="true"
+         filter="safehtml" /> 
+
+      <field name="state" type="list" label="JSTATUS"
+         description="JFIELD_PUBLISHED_DESC"
+         class="inputbox"
+         size="1"
+         default="1">
+         <option value="1">JPUBLISHED</option>
+         <option value="0">JUNPUBLISHED</option>
+      </field> 
+
+      <field name="checked_out" type="hidden" filter="unset" />
+      <field name="checked_out_time" type="hidden" filter="unset" />
+
+	</fieldset>
+
+   <fieldset name="audit" label="COM_ISSUETRACKER_ISSUE_AUDIT_LEGEND">
+      <field name="created_on" type="timecreated" default="" 
+         label="COM_ISSUETRACKER_FIELD_CREATED_ON_LABEL" 
+         description="COM_ISSUETRACKER_CREATED_ON_DESC"
+         readonly="true"
+         disabled="true"
+         size="30" />    
+
+      <field name="created_by" type="createdby"
+         label="COM_ISSUETRACKER_FIELD_CREATED_BY_LABEL"
+         description="COM_ISSUETRACKER_FIELD_CREATED_BY_DESC"
+         readonly="true"
+         disabled="true"
+         size="40" />
+
+     <field name="modified_on" type="timeupdated" default="" 
+         label="COM_ISSUETRACKER_FIELD_MODIFIED_ON_LABEL" 
+         description="COM_ISSUETRACKER_FIELD_MODIFIED_ON_DESC"
+         readonly="true"
+         disabled="true"
+         size="30" />    
+
+     <field name="modified_by" type="text"
+         label="COM_ISSUETRACKER_FIELD_MODIFIED_BY_LABEL"
+         description="COM_ISSUETRACKER_FIELD_MODIFIED_BY_DESC"
+         readonly="true"
+         disabled="true"
+         size="40" />
+   </fieldset>
+
+</form>

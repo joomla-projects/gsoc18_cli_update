@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE metadata>
+<metadata>
+   <layout title="COM_ISSUETRACKER_PEOPLE_SINGLE_RECORD" hidden="false">
+      <message><![CDATA[COM_ISSUETRACKER_PEOPLE_SINGLE_RECORD]]></message>
+   </layout>
+
+   <!-- Add fields to the request variables for the layout. -->
+   <fields name="request">
+      <fieldset name="request">
+         <field
+            name="id"
+            type="sql"
+            label="COM_ISSUETRACKER_SELECT_PERSON_LABEL"
+            description="COM_ISSUETRACKER_SELECT_PERSON_DESC"
+            query="SELECT id AS id, person_name AS title FROM #__it_people where published = 1"
+            value_field="title"
+	         key_field="id"
+            required="true"
+         />
+      </fieldset>
+   </fields>
+	
+   <!-- Add fields to the parameters object for the layout. -->
+   <fields name="params" label="COM_ISSUETRACKER_DISPLAY_OPTIONS">
+      <fieldset name="params" label="COM_ISSUETRACKER_DISPLAY_OPTIONS">
+
+ 	      <field name="show_icons"
+            type="radio" default="0" class="btn-group"
+	         label="JGLOBAL_SHOW_ICONS_LABEL"
+	         description="JGLOBAL_SHOW_ICONS_DESC">
+	         <option value="0">JHIDE</option>
+	         <option value="1">JSHOW</option>
+	      </field>
+ 
+	      <field name="show_print_icon"
+            type="radio" default="0" class="btn-group"
+	         label="JGLOBAL_SHOW_PRINT_ICON_LABEL"
+	         description="JGLOBAL_SHOW_PRINT_ICON_DESC">
+	         <option value="0">JHIDE</option>
+	         <option value="1">JSHOW</option>
+	      </field>
+
+	      <field name="show_email_icon"
+            type="radio" default="0" class="btn-group"
+	         label="JGLOBAL_SHOW_EMAIL_ICON_LABEL"
+	         description="JGLOBAL_SHOW_EMAIL_ICON_DESC">
+	         <option	value="0">JHIDE</option>
+	         <option	value="1">JSHOW</option>
+	      </field>
+    
+         <field name="show_email_field" type="radio" class="btn-group"
+            description="COM_ISSUETRACKER_FIELD_SHOW_EMAIL_DESC"
+            label="COM_ISSUETRACKER_FIELD_SHOW_EMAIL_LABEL"
+            default="0" >
+            <option value="0">JHIDE</option>
+            <option value="1">JSHOW</option>
+         </field>
+      
+         <field name="show_username_field" type="radio" class="btn-group"
+            description="COM_ISSUETRACKER_FIELD_SHOW_USERNAME_DESC"
+            label="COM_ISSUETRACKER_FIELD_SHOW_USERNAME_LABEL"
+            default="0" >
+            <option value="0">JHIDE</option>
+            <option value="1">JSHOW</option>
+         </field>
+ 
+         <field name="show_audit_fields" type="radio" class="btn-group"
+            description="COM_ISSUETRACKER_FIELD_SHOW_AUDIT_RECS_DESC"
+            label="COM_ISSUETRACKER_FIELD_SHOW_AUDIT_RECS_LABEL"
+            default="0" >
+            <option value="0">JHIDE</option>
+            <option value="1">JSHOW</option>
+         </field>
+      </fieldset>
+   </fields>        
+</metadata>

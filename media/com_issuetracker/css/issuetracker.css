@@ -1,0 +1,572 @@
+/*
+@package     Joomla
+@subpackage  com_issuetracker
+@copyright   Copyright (C) 2011-2016 G S Chapman. Macrotone Consulting Ltd. All rights reserved.
+@license     GNU General Public License Version 3, or later http://www.gnu.org/licenses/gpl.html
+*/
+
+@media print {
+#toolbartools {display:none; visibility:hidden;}
+}
+
+/*************************/
+/* General look and feel */
+/*************************/
+.pagetitle {font-weight: bold; font-size: 150%; padding: 7px 0;}
+
+/*************************************************************************/
+/* Following taken from adminlist.css to handle footer of lists.         */
+/* Otherwise we have to include the adminlist.css file in our templates. */
+/* Need to ensure this is still true for J3.x                            */
+/*************************************************************************/
+.list-footer div.limit select#limit {
+      width: 50px;
+ }
+   
+ /* ++++++++++++++  pagination  ++++++++++++++ */
+   
+ .list-footer {
+     margin: 10px 0;
+     padding: 10px 0 10px 0;
+     text-align: center;
+ }
+   
+ table .list-footer ul {
+     list-style-type: none;
+     margin: 0 !important;
+     padding: 0;
+     text-align: left;
+     border: solid 0 #ccc;
+     float: left;
+ }
+   
+ .list-footer li {
+     display: inline;
+     padding: 2px 5px !important;
+     text-align: left;
+     border: solid 0 #eee;
+     margin: 0 2px;
+     font-size: 11px;
+ }
+   
+ .list-footer li.pagination-start,
+ .list-footer li.pagination-next,
+ .list-footer li.pagination-end,
+ .list-footer li.pagination-prev {
+     border: 0;
+ }
+   
+ .list-footer li.pagination-start ,
+ .list-footer li.pagination-start span {
+     padding: 4px;
+ }
+   
+ p.counter {
+     font-weight: bold;
+ }
+ 
+/***********************************/
+/* Table settings                  */
+/* Adminlist - old standard        */
+/* Used in versions prior to 1.2.2 */
+/***********************************/ 
+table.itstyle {
+   width: 99%;
+   border-spacing: 1px;
+   background-color: #f3f3f3;
+   color: #666;
+   font-size: 11px;
+   table-layout: fixed;}
+  
+table.itstyle td,
+table.itstyle th {
+   padding: 4px !important;
+   font-size: 11px;
+}
+  
+table.itstyle thead th {
+   text-align: center;
+   background: #f7f7f7;
+   color: #666;
+   border-bottom: 1px solid #CCC;
+   border-left: 1px solid #fff;
+}
+  
+table.itstyle thead th.left {
+   text-align: left;
+}
+  
+table.itstyle thead a:hover {
+   text-decoration: none;
+}
+  
+table.itstyle thead th img {
+   vertical-align: middle;
+   padding-left: 3px;
+}
+  
+table.itstyle tbody th {
+   font-weight: bold;
+}
+  
+table.itstyle th a img {
+   border: 0;
+}
+  
+table.itstyle tbody tr {
+   background-color: #fff;
+   text-align: left;
+   word-wrap: break-word;      
+}
+  
+table.itstyle tbody tr.row0:hover td,
+table.itstyle tbody tr.row1:hover td {
+   background-color: #e8f6fe;
+}
+  
+table.itstyle tbody tr td {
+   background: #fff;
+   border: 1px solid #fff;
+}
+  
+table.itstyle tbody tr.row1 td {
+   background: #f0f0f0;
+   border-top: 1px solid #FFF;
+}
+  
+table.itstyle tfoot tr {
+   text-align: center;
+   color: #333;
+}
+  
+table.itstyle tfoot td,
+table.itstyle tfoot th {
+   background-color: #f7f7f7;
+   border-top: 1px solid #999;
+   text-align: center;
+}
+  
+table.itstyle td.order {
+   text-align: center;
+   white-space: nowrap;
+   width: 200px;
+}
+  
+table.itstyle td.order span {
+   float: left;
+   width: 20px;
+   text-align: center;
+   background-repeat: no-repeat;
+   height: 13px;
+}
+  
+table.itstyle .pagination {
+   display: inline-block;
+   padding: 0;
+   margin: 0 auto;
+}
+  
+/*********************************************/
+/* Tree indentation & nesting                */ 
+/* Up to 10 levels deep so don't go crazy :-) */
+/*********************************************/
+table.itstyle td.indent-4        { padding-left: 4px; }
+table.itstyle td.indent-19    { padding-left: 19px; }
+table.itstyle td.indent-34    { padding-left: 34px; }
+table.itstyle td.indent-49    { padding-left: 49px; }
+table.itstyle td.indent-64    { padding-left: 64px; }
+table.itstyle td.indent-79    { padding-left: 79px; }
+table.itstyle td.indent-94    { padding-left: 94px; }
+table.itstyle td.indent-109    { padding-left: 109px; }
+table.itstyle td.indent-124    { padding-left: 124px; }
+table.itstyle td.indent-139    { padding-left: 139px; }
+  
+table.itstyle tr td.btns a {
+   text-decoration: underline;
+}
+
+/*************************************************/
+/* Need to ensure columns are clearly separated. */
+/* Added for Joomal 3 where old adminlist is no  */
+/* longer available and it might still be in use.*/
+/*************************************************/
+/*
+table.adminlist th,
+table.adminlist td {
+   padding: 3px 3px .75em 3px;
+   line-height: 1.3em;
+}
+*/
+table.adminlist {
+width: 100%;
+}
+
+table.adminlist td,
+table.adminlist th {
+padding: 3px 3px .75em 3px;
+line-height: 1.3em;
+border: solid 1px silver;
+text-align: left;
+vertical-align: top;
+}
+
+table.adminlist,p { /* crimle */
+margin-top: 0 !important;
+}
+
+/******************************/
+/* Table adminlist style ends */
+/******************************/
+
+/*************************/
+/* Table look and feel   */
+/* Blue theme            */
+/*************************/
+
+table.itbluestyle table, 
+table.itbluestyle td, 
+table.itbluestyle th {
+	border-collapse:collapse;
+	margin:0;
+	padding:0;
+}
+
+table.itbluestyle {
+   border: none;
+   font: .9em/1.2em Georgia, "Times New Roman", Times, serif;
+   width: 100%;
+   table-layout: fixed;
+}
+
+table.itbluestyle table caption {
+    background: transparent repeat-x bottom left;
+    text-align:left;
+	font-size:150%;
+	text-transform:uppercase;
+	line-height: 30px;
+	letter-spacing:0;
+}
+
+table.itbluestyle td, 
+table.itbluestyle th{	
+	vertical-align:top;
+	font-weight:normal;	
+}
+
+table.itbluestyle thead {
+	border-left:1px solid #2293FF;	
+}
+
+table.itbluestyle thead th {
+	background: #bddfff;
+	color: #FFFFFF;
+	font-size: 125%;
+        font-weight: bold;
+	border-top:1px solid #2293FF;
+	border-right:1px solid #2293FF;
+	padding: 4px 0.4em 4px 0.4em;	
+}
+
+table.itbluestyle tfoot td, 
+table.itbluestyle tfoot th {
+	border-top:1px solid #2293FF;
+	border-right: none;
+	font-weight: bolder;
+	font-size: 110%;
+	padding: 0.4em 0.5em 0.4em 0.5em;
+   background-color: #bddfff;
+   text-align: center;
+}
+
+table.itbluestyle tbody tr.row0 td,
+table.itbluestyle tbody th {
+	background-color: #D9ECFF;
+	border-right:1px solid #2293FF;
+	border-left:1px solid #2293FF;
+	padding: 0.4em 0.5em 0.4em 0.5em;
+   word-wrap: break-word;
+}
+
+table.itbluestyle tbody tr th, 
+table.itbluestyle tbody tr.row1 td{
+	background-color: #BDDFFF;
+	border-right:1px solid #2293FF;
+	border-left:1px solid #2293FF;
+	padding: 0.4em 0.5em 0.4em 0.5em;
+   word-wrap: break-word;
+}
+
+table.itbluestyle tbody th{	
+	font-weight: bold;	
+	border-left:1px solid #2293FF
+}
+
+table.itbluestyle a:link, 
+table.itbluestyle a:visited, 
+table.itbluestyle a:active {	
+	color:#444F66;
+	background-color: transparent;
+	text-decoration: underline;
+}
+
+table.itbluestyle a:hover {
+	text-decoration:none;
+	background-color: #1E90FF;
+	color: #FFFFFF;
+}
+/*************************/
+/* Table blue style ends */
+/*************************/
+
+
+/*************************/
+/* Table look and feel   */
+/* Alternative  theme    */
+/*************************/
+table.italtstyle { 
+   border-collapse: collapse; 
+   border: 1px solid #839E99; 
+   background: #f1f8ee; 
+   font: .9em/1.2em Georgia, "Times New Roman", Times, serif; 
+   color: #033; 
+   width: 100%;
+   table-layout: fixed;
+}
+
+table.italtstyle caption { 
+   font-size: 1.3em; 
+   font-weight: bold; 
+   text-align: left; 
+   padding: 1em 4px; 
+}
+
+table.italtstyle td, 
+table.italtstyle th { 
+   padding: 3px 3px .75em 3px; 
+   line-height: 1.3em;
+}
+
+table.italtstyle th { 
+   background: #839E99; 
+   color: #fff; 
+   font-weight: bold; 
+   text-align: left; 
+   padding-right: .5em; 
+   vertical-align: top;
+}
+
+table.italtstyle thead th { 
+   background: #2C5755; 
+   text-align: center;
+}
+
+table.italtstyle tr.row0 td { 
+   background: #f1f8ee;
+   word-wrap: break-word;
+}
+
+table.italtstyle tr.row0 th { 
+   background: #2C5755;
+}
+
+table.italtstyle tr.row1 td { 
+   background: #DBE6DD;
+   word-wrap: break-word;
+}
+
+table.italtstyle tr.row1 th { 
+   background: #6E8D88;
+}
+
+table.italtstyle td a, 
+table.italtstyle td a:link { 
+   color: #325C91;
+}
+
+table.italtstyle td a:visited { 
+   color: #466C8E;
+}
+
+table.italtstyle td a:hover, 
+table.italtstyle td a:focus { 
+   color: #1E4C94;
+}
+
+table.italtstyle th a, 
+table.italtstyle td a:active { 
+   color: #fff;
+}
+
+table.italtstyle tfoot th, 
+table.italtstyle tfoot td { 
+   background: #2C5755; 
+   color: #fff;
+}
+
+table.italtstyle th + td { 
+   padding-left: .5em;
+}
+
+.list-footer div.limit {
+     float: left;
+     line-height: 22px;
+     margin: 0 10px;
+ }
+   
+ 
+/*************************/
+/* Table alt style ends  */
+/*************************/
+
+
+/***************************************/
+/* Sample style for front end formelm */
+/***************************************/
+div.formelm label {
+    display: block;
+    float: left;
+    width: 200px;
+}
+ 
+div.formelm input {
+    margin: 0 0 3px 0;
+}
+
+/* 
+.formelm .inputbox { 
+    border-color:#CCCCCC #E7E7E7 #E7E7E7; 
+    border-radius:2px; 
+    border-right:1px solid #E7E7E7; 
+    border-style:solid; 
+    border-width:1px; 
+    box-shadow:0 1px 6px #F0F0F0 inset; 
+    color:#111111; 
+    font:12px/18px Arial,Helvetica,sans-serif; 
+    height:16px; padding:6px; }
+*/
+/***************************************/
+/* Sample style for front end FieldDev */
+/***************************************/
+form fieldset dt {
+  clear: left;
+  float: left;
+  width: 12em;
+  padding: 3px 0;
+}
+
+/*  Remove comments for new style for single item display. 
+    Need this or somthing similar for Joomla 3.1 */
+.fieldDiv body {
+  font-family:arial, verdana, sans-serif;
+  font-size:0.8em;
+  background:#8be;
+  color:#fff;
+}
+.fieldDiv legend  {
+  font-size:14px; 
+  background:#FAFAFA; 
+  border:1px solid #C3C3C3; 
+  border-radius:0 0 3px 3px; 
+  position:relative; 
+  width:auto; 
+  padding:2px 10px;
+}
+.fieldDiv dl {
+  font-weight: bold;
+}
+.fieldDiv dt {
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #bf2c22;
+  width: 13em;
+}
+
+.fieldDiv dt:after { content: ":"; }
+
+.fieldDiv dd {
+  color: #5454d4;
+  float:left; 
+  letter-spacing: 2px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+/**************************/
+/* FieldDiv settings end. */
+/**************************/
+
+/**************************/
+/* Button icons extracted from Bootstrap. */
+/**************************/
+.btn {
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  vertical-align: middle;
+  cursor: pointer;
+  background: #f5f5f5 repeat-x;
+  border-image-source: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #b3b3b3;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-info {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background: #49afcd repeat-x;
+  border-top-color: rgba(0, 0, 0, 0.1);
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+}
+/* Added for form notify radio buttons. */
+.btn-group {display:inline-block; margin-left: 5px; }
+.btn-group.radio label { margin-left: 5px; margin-right: 5px; }
+
+/*******************************************/
+/* Editor Styles Starts Here               */ 
+/* Theses are experiemental at this stage! */
+/*******************************************/
+/*
+#editor-xtd-buttons { padding-top:5px; }
+.formelm { float:none; padding:0px 5px 0px 5px; position:relative; display:block; overflow:hidden; margin-bottom:10px; }
+.formelm-area { color:#000000; font-size:10px; padding:3px 0; width:12em; text-transform:uppercase; position:relative; display:block; }
+.formelm-area label{ color:#000000; float:left; font-size:10px; padding:3px 0; width:12em; text-transform:uppercase; }
+.formelm-buttons { float:right; margin-bottom:10px; margin-top:-40px; position:inline; }
+.formelm label { color: #000000; float: left; font-size: 10px; padding: 3px ; text-transform: uppercase; vertical-align: top; width: 14em; }
+.formelm .inputbox { border-color:#CCCCCC #E7E7E7 #E7E7E7; border-radius:2px; border-right:1px solid #E7E7E7; border-style:solid; border-width:1px; box-shadow:0 1px 6px #F0F0F0 inset; color:#111111; font:12px/18px Arial,Helvetica,sans-serif; height:16px; padding:6px; }
+.button2-left { float:left; margin-left:5px; background:#FFFFFF; border:1px solid #DBDBDB; border-radius:3px; color:#333333; cursor:pointer; display:block; font-size:12px; font-family:BebasNeue,Arial,sans-serif; height:29px !important; line-height:31px; margin:0 5px 3px 2px; padding:0 16px; font-weight:normal; }
+.edit form#adminForm fieldset { border:1px solid #DDDDDD; }
+.edit form#adminForm fieldset { margin:10px 0 15px; padding:20px 15px; }
+.edit form#adminForm  legend { font-size:14px; background:#FAFAFA; border:1px solid #C3C3C3; border-radius:0 0 3px 3px; position:relative; width:auto; padding:2px 10px; }
+fieldset { border:0 solid #CCCCCC; }
+fieldset { border:1px solid; margin:10px 0; padding:15px 0; }
+fieldset a { font-weight:normal; }
+fieldset .legend { font-size:18px; }
+div.mceEditor { padding-top:2px; position:relative; }
+jform_language-lbl { color:#000000; float:left; font-size:10px; padding:3px 0; width:12em; text-transform:uppercase; }
+span.wf_editor_toggle { cursor:pointer; display:block; line-height:20px; background:#FAFAFA; border:1px solid #C3C3C3; border-radius:0 0 3px 3px; position:relative; width:70px; padding:5px; text-align:center; font-size:12px; font-family: BebasNeue,Arial,sans-serif; }
+/* Calendar Display Fix Starts */
+.calendar .button { display:table-cell !important; float:none !important; }
+/* Calendar Display Fix Ends*/
+/*
+.formelm input[type="password"],
+.formelm input[type="text"],
+.formelm input[type="email"],
+.formelm input[type="www"],
+.formelm input[type="tel"],
+.formelm input[type="url"],
+.formelm input[type="search"],
+.formelm select,
+.formelm .inputbox { width:20%; float:none; }
+.formelm .button2-left { width: auto;}
+.formelm .fltlft { float:none; }
+*/
+/**************************/
+/* Editor Style Ends Here */
+/**************************/
