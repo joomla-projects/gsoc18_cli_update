@@ -106,6 +106,22 @@ class Application implements ServiceProviderInterface
 					$app->setLogger($container->get(LoggerInterface::class));
 					$app->setSession($session);
 
+					// Dynamically register core commands
+					$srcDir = JPATH_LIBRARIES . '/src/';
+					$paths = glob($srcDir . '/Console/*.php');
+
+					foreach ($paths as $key => $path) {
+						$namespaces[] = str_replace(
+							['.php', DIRECTORY_SEPARATOR],
+							['', '\\'],
+							explode($srcDir, $path)[1]
+						);
+					}
+					foreach ($namespaces as $key => $command) {
+							$className = '\Joomla\CMS' . $command;
+							$app->addCommand($container->buildSharedObject($className));
+					}
+
 					return $app;
 				},
 				true
@@ -119,7 +135,6 @@ class Application implements ServiceProviderInterface
 					$mapping = [
 						'session:gc' => SessionGcCommand::class,
 					];
-
 					return new ContainerLoader($container, $mapping);
 				},
 				true

@@ -174,41 +174,9 @@ class ConsoleApplication extends Application implements DispatcherAwareInterface
 	{
 		return array_merge(
 			parent::getDefaultCommands(),
-            $this->loadCommands()
+            []
 		);
 	}
-
-    /**
-     * Dynamically Load Commands from  JPATH_LIBRARIES/src/Console/
-     *
-     * @return array
-     *
-     * @since 4.0.0
-     */
-    private function loadCommands() : array
-    {
-        $root = JPATH_LIBRARIES . '/src/';
-        $paths = glob($root . 'Console/*.php');
-
-        foreach ($paths as $key => $path) {
-            $namespaces[]  = str_replace(
-                ['.php', DIRECTORY_SEPARATOR],
-                ['', '\\'],
-                explode($root, $path)[1]
-            );
-        }
-
-        if (empty($namespaces)) {
-            return [];
-        } else {
-            foreach ($namespaces as $key => $command) {
-                $command = '\Joomla\CMS\\' . $command;
-                $commands[] =  (new  \ReflectionClass($command))->newInstance();
-            }
-        }
-
-        return $commands;
-    }
 
 	/**
 	 * Retrieve the application configuration object.
