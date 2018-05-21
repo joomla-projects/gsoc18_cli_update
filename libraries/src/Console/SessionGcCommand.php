@@ -39,12 +39,12 @@ class SessionGcCommand extends AbstractCommand
 	 *
 	 * @since   4.0.0
 	 */
-//	public function __construct(SessionInterface $session)
-//	{
-//		$this->session = $session;
-//
-//		parent::__construct();
-//	}
+	public function __construct(SessionInterface $session)
+	{
+		$this->session = $session;
+
+		parent::__construct();
+	}
 
 
 	/**
