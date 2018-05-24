@@ -32,7 +32,7 @@ class CheckJoomlaUpdatesCommand extends AbstractCommand
 		$data = $this->getUpdateInformation();
 		$symfonyStyle = new SymfonyStyle($this->getApplication()->getConsoleInput(), $this->getApplication()->getConsoleOutput());
 		$symfonyStyle->title('Joomla! Updates');
-		if (!$data['hasUpdate'])
+		if ($data['hasUpdate'])
 		{
 			$symfonyStyle->success('You already have the latest Joomla version ' . $data['latest']);
 		}
