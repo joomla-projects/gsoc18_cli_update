@@ -65,12 +65,15 @@ EOF
 
 	/**
 	 * Retrieves Update Information
+	 *
 	 * @return mixed
 	 *
 	 * @since version
+	 *
 	 * @throws \Exception
 	 */
-	public function getUpdateInformation() {
+	public function getUpdateInformation()
+	{
 		$app = \JFactory::getApplication();
 		$updatemodel = $app->bootComponent('com_joomlaupdate')->createMVCFactory($app)->createModel('Update', 'Administrator');
 		return $updatemodel->getUpdateInformation();
