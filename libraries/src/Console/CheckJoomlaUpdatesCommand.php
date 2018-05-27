@@ -20,6 +20,10 @@ use Symfony\Component\Console\Style\SymfonyStyle;
  */
 class CheckJoomlaUpdatesCommand extends AbstractCommand
 {
+	/*
+	 * Stores the Update Information
+	 */
+	private $updateInfo;
 	/**
 	 * Execute the command.
 	 *
@@ -29,8 +33,9 @@ class CheckJoomlaUpdatesCommand extends AbstractCommand
 	 */
 	public function execute(): int
 	{
-		$data = $this->getUpdateInformation();
 		$symfonyStyle = new SymfonyStyle($this->getApplication()->getConsoleInput(), $this->getApplication()->getConsoleOutput());
+
+		$data = $this->getUpdateInfo();
 		$symfonyStyle->title('Joomla! Updates');
 		if (!$data['hasUpdate'])
 		{
@@ -68,14 +73,37 @@ EOF
 	 *
 	 * @return mixed
 	 *
-	 * @since version
-	 *
-	 * @throws \Exception
+	 * @since 4.0
 	 */
-	public function getUpdateInformation()
+	private function getUpdateInformationFromModel()
 	{
 		$app = \JFactory::getApplication();
 		$updatemodel = $app->bootComponent('com_joomlaupdate')->createMVCFactory($app)->createModel('Update', 'Administrator');
 		return $updatemodel->getUpdateInformation();
+	}
+
+	public function getUpdateInfo()
+	{
+		if (!$this->updateInfo)
+		{
+			$this->setUpdateInfo();
+			return $this->updateInfo;
+		}
+		else
+		{
+			return $this->updateInfo;
+		}
+	}
+
+	public function setUpdateInfo($info = null)
+	{
+		if (!$info)
+		{
+			$this->updateInfo = $this->getUpdateInformationFromModel();
+		}
+		else
+		{
+			$this->updateInfo = $info;
+		}
 	}
 }
