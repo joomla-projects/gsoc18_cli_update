@@ -82,6 +82,13 @@ EOF
 		return $updatemodel->getUpdateInformation();
 	}
 
+	/**
+	 * Gets the Update Information
+	 *
+	 * @return mixed
+	 *
+	 * @since 4.0
+	 */
 	public function getUpdateInfo()
 	{
 		if (!$this->updateInfo)
@@ -95,6 +102,12 @@ EOF
 		}
 	}
 
+	/**
+	 * Sets the Update Information
+	 * @param null $info
+	 *
+	 * @since 4.0
+	 */
 	public function setUpdateInfo($info = null)
 	{
 		if (!$info)
