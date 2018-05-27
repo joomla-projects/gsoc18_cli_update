@@ -105,7 +105,7 @@ EOF
 	/**
 	 * Sets the Update Information
 	 *
-	 * @param   null $info stores update Information
+	 * @param   null  $info  stores update Information
 	 *
 	 * @since 4.0
 	 *
