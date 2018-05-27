@@ -104,9 +104,12 @@ EOF
 
 	/**
 	 * Sets the Update Information
-	 * @param null $info
+	 *
+	 * @param   null $info stores update Information
 	 *
 	 * @since 4.0
+	 *
+	 * @return void
 	 */
 	public function setUpdateInfo($info = null)
 	{
