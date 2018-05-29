@@ -12,6 +12,7 @@ defined('JPATH_PLATFORM') or die;
 
 use Joomla\Console\AbstractCommand;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Joomla\CMS\Factory;
 
 /**
  * Console command for checking if there are pending extension updates
@@ -77,7 +78,7 @@ EOF
 	 */
 	private function getUpdateInformationFromModel()
 	{
-		$app = \JFactory::getApplication();
+		$app = Factory::getApplication();
 		$updatemodel = $app->bootComponent('com_joomlaupdate')->createMVCFactory($app)->createModel('Update', 'Administrator');
 		return $updatemodel->getUpdateInformation();
 	}

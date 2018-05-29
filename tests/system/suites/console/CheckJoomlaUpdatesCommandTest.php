@@ -16,17 +16,9 @@ class CheckJoomlaUpdatesCommandTest extends \PHPUnit\Framework\TestCase
 	 */
 	public function testIfCommandOutputContainsUsageInformation()
 	{
-		$result   = `php cli/joomla.php help check-updates`;
-		$parts    = $this->splitResult($result);
-		array_shift($parts);
-		$sections = [];
-
-		while (!empty($parts))
-		{
-			$sections[array_shift($parts)] = array_shift($parts);
-		}
-
-		$this->assertArrayHasKey('Usage', $sections, 'Message should contain usage instructions');
+		exec('php cli/joomla.php help check-updates', $parts);
+		$parts = array_flip($parts);
+		$this->assertArrayHasKey("Usage:", $parts, 'Message should contain usage instructions');
 	}
 
 	/**
@@ -36,24 +28,10 @@ class CheckJoomlaUpdatesCommandTest extends \PHPUnit\Framework\TestCase
 	 */
 	public function testIfThereIsJoomlaUpdate()
 	{
-		$result = `php cli/joomla.php check-updates`;
+		exec('php cli/joomla.php check-updates', $result, $code);
 		$possible_results = ['[NOTE] New Joomla Version', '[OK] You already have the latest Joomla version'];
+		$result = implode("\n", $result);
 		$bool = (strpos($result, $possible_results[0]) || strpos($result, $possible_results[1]));
 		$this->assertEquals(true, $bool, 'Checking of Update not successful');
-	}
-
-	/**
-	 * Splits Command results
-	 *
-	 * @param $result
-	 *
-	 * @return array[]|false|string[]
-	 *
-	 * @since 4.0
-	 */
-	private function splitResult($result)
-	{
-		$parts    = preg_split("~(?:^|\n)(.*?):\n~", $result, -1, PREG_SPLIT_DELIM_CAPTURE);
-		return $parts;
 	}
 }

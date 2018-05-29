@@ -13,17 +13,9 @@ class CacheCleanTest extends \PHPUnit\Framework\TestCase
 	 */
 	public function testOutputContainsUsage()
 	{
-		$result   = `php cli/joomla.php help cache:clean`;
-		$parts    = preg_split("~(?:^|\n)(.*?):\n~", $result, -1, PREG_SPLIT_DELIM_CAPTURE);
-		$halo     = array_shift($parts);
-		$sections = [];
-
-		while (!empty($parts))
-		{
-			$sections[array_shift($parts)] = array_shift($parts);
-		}
-
-		$this->assertArrayHasKey('Usage', $sections, 'Message should contain usage instructions');
+		exec('php cli/joomla.php help cache:clean', $result);
+		$sections = array_flip($result);
+		$this->assertArrayHasKey('Usage:', $sections, 'Message should contain usage instructions');
 	}
 
 	/**
@@ -38,10 +30,10 @@ class CacheCleanTest extends \PHPUnit\Framework\TestCase
 		chown($filename, fileowner($template));
 		chgrp($filename, filegroup($template));
 
-		$result = `php cli/joomla.php cache:clean`;
-
-		$this->assertContains('[OK] Cache cleaned', $result);
+		exec('php cli/joomla.php cache:clean', $result, $code);
+		$this->assertTrue(in_array(' [OK] Cache cleaned', $result));
 		$this->assertFileNotExists($filename, "Cache file should have been removed");
+		$this->assertEquals(0, $code, 'The Command did not execute successfully.');
 	}
 
 	/**
@@ -50,9 +42,8 @@ class CacheCleanTest extends \PHPUnit\Framework\TestCase
 	 */
 	public function testCleanEmptyCache()
 	{
-		$result = `php cli/joomla.php cache:clean`;
-
-		$this->assertContains('[OK] Cache cleaned', $result);
+		exec('php cli/joomla.php cache:clean', $result);
+		$this->assertContains('[OK] Cache cleaned', implode("\n", $result));
 	}
 
 	public function filesToKeep()
@@ -78,9 +69,9 @@ class CacheCleanTest extends \PHPUnit\Framework\TestCase
 		chown($filename, fileowner($template));
 		chgrp($filename, filegroup($template));
 
-		$result = `php cli/joomla.php cache:clean`;
+		exec('php cli/joomla.php cache:clean', $result);
 
-		$this->assertContains('[OK] Cache cleaned', $result);
+		$this->assertContains('[OK] Cache cleaned', implode("\n", $result));
 		$this->assertFileExists($filename, "Special file '$file' should not have been removed");
 		unlink($filename);
 	}
