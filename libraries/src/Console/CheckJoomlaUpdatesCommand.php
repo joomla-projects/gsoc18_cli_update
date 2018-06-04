@@ -10,7 +10,6 @@ namespace Joomla\CMS\Console;
 
 defined('JPATH_PLATFORM') or die;
 
-use Joomla\CMS\Language\Text;
 use Joomla\Console\AbstractCommand;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Joomla\CMS\Factory;
@@ -26,21 +25,7 @@ class CheckJoomlaUpdatesCommand extends AbstractCommand
 	 * Stores the Update Information
 	 */
 	private $updateInfo;
-
-	/**
-	 * Configures the IO
-	 *
-	 * @since 4.0
-	 *
-	 * @return void
-	 */
-	private function configureIO()
-	{
-		$language = Factory::getLanguage();
-		$language->load('check_updates_cli', JPATH_SITE, null, false, false)
-		// Fallback to the check_updates_cli file in the default language
-		|| $language->load('check_updates_cli', JPATH_SITE, null, true);
-	}
+	
 	/**
 	 * Execute the command.
 	 *
@@ -51,15 +36,16 @@ class CheckJoomlaUpdatesCommand extends AbstractCommand
 	public function execute(): int
 	{
 		$symfonyStyle = new SymfonyStyle($this->getApplication()->getConsoleInput(), $this->getApplication()->getConsoleOutput());
+
 		$data = $this->getUpdateInfo();
-		$symfonyStyle->title(Text::_('CHECK_UPDATES_TITLE'));
-		if ($data['hasUpdate'])
+		$symfonyStyle->title('Joomla! Updates');
+		if (!$data['hasUpdate'])
 		{
-			$symfonyStyle->success(Text::sprintf('UPDATES_NOT_AVAILABLE', $data['latest']));
+			$symfonyStyle->success('You already have the latest Joomla version ' . $data['latest']);
 		}
 		else
 		{
-			$symfonyStyle->note(Text::sprintf('UPDATES_AVAILABLE', $data['latest']));
+			$symfonyStyle->note('New Joomla Version ' . $data['latest'] . ' is available.');
 		}
 		return 0;
 	}
@@ -73,10 +59,10 @@ class CheckJoomlaUpdatesCommand extends AbstractCommand
 	 */
 	protected function initialise()
 	{
-		$this->configureIO();
+		$help = "The <info>%command.name%</info> Checks for Joomla updates.\n Usage: <info>php %command.full_name%</info>";
 		$this->setName('check-updates');
-		$this->setDescription(Text::_('CHECK_UPDATES_DESCRIPTION'));
-		$this->setHelp(Text::_('CHECK_UPDATES_HELP'));
+		$this->setDescription('Checks for Joomla updates');
+		$this->setHelp($help);
 	}
 
 	/**
