@@ -25,6 +25,7 @@ class CheckJoomlaUpdatesCommand extends AbstractCommand
 	 * Stores the Update Information
 	 */
 	private $updateInfo;
+	
 	/**
 	 * Execute the command.
 	 *
@@ -58,15 +59,10 @@ class CheckJoomlaUpdatesCommand extends AbstractCommand
 	 */
 	protected function initialise()
 	{
+		$help = "The <info>%command.name%</info> Checks for Joomla updates.\n Usage: <info>php %command.full_name%</info>";
 		$this->setName('check-updates');
 		$this->setDescription('Checks for Joomla updates');
-		$this->setHelp(
-			<<<EOF
-The <info>%command.name%</info> Checks for Joomla updates
-
-<info>php %command.full_name%</info>
-EOF
-		);
+		$this->setHelp($help);
 	}
 
 	/**
