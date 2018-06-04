@@ -27,6 +27,11 @@ class CheckJoomlaUpdatesCommand extends AbstractCommand
 	 */
 	private $updateInfo;
 
+	/**
+	 * Configures the IO
+	 *
+	 * @since 4.0
+	 */
 	private function configureIO()
 	{
 		$language = Factory::getLanguage();
@@ -44,7 +49,6 @@ class CheckJoomlaUpdatesCommand extends AbstractCommand
 	public function execute(): int
 	{
 		$symfonyStyle = new SymfonyStyle($this->getApplication()->getConsoleInput(), $this->getApplication()->getConsoleOutput());
-
 		$data = $this->getUpdateInfo();
 		$symfonyStyle->title(Text::_('CHECK_UPDATES_TITLE'));
 		if ($data['hasUpdate'])
