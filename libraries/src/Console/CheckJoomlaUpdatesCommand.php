@@ -31,6 +31,8 @@ class CheckJoomlaUpdatesCommand extends AbstractCommand
 	 * Configures the IO
 	 *
 	 * @since 4.0
+	 *
+	 * @return void
 	 */
 	private function configureIO()
 	{
@@ -53,7 +55,7 @@ class CheckJoomlaUpdatesCommand extends AbstractCommand
 		$symfonyStyle->title(Text::_('CHECK_UPDATES_TITLE'));
 		if ($data['hasUpdate'])
 		{
-			$symfonyStyle->success(Text::sprintf('UPDATES_NOT_AVAILABLE' , $data['latest']));
+			$symfonyStyle->success(Text::sprintf('UPDATES_NOT_AVAILABLE', $data['latest']));
 		}
 		else
 		{
