@@ -97,7 +97,7 @@ EOF
 	/**
 	 * Removes the extension
 	 *
-	 * @param   integer    $extension_id  ID of extension to be removed
+	 * @param   integer  $extension_id  ID of extension to be removed
 	 *
 	 * @return bool
 	 *

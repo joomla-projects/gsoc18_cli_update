@@ -118,7 +118,7 @@ EOF
 	/**
 	 * Used for installing extension from a path
 	 *
-	 * @param   string    $path  Path to the extension zip file
+	 * @param   string  $path  Path to the extension zip file
 	 *
 	 * @return bool|int
 	 *
@@ -151,7 +151,7 @@ EOF
 	/**
 	 * Used for installing extension from a URL
 	 *
-	 * @param   string    $url  URL to the extension zip file
+	 * @param   string  $url  URL to the extension zip file
 	 *
 	 * @return bool
 	 *
