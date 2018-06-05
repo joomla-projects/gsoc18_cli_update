@@ -48,7 +48,7 @@ class ExtensionRemoveCommand extends AbstractCommand
 		$this->configureIO();
 		$extension_id = $this->cliInput->getArgument('extension_id');
 		$response = $this->ioStyle->ask('Are you sure you want to remove this extension?', 'yes/no');
-		if($response == 'yes')
+		if ($response == 'yes')
 		{
 			if ($this->removeExtension($extension_id))
 			{
@@ -97,7 +97,7 @@ EOF
 	/**
 	 * Removes the extension
 	 *
-	 * @param   $extension_id  ID of extension to be removed
+	 * @param   integer    $extension_id  ID of extension to be removed
 	 *
 	 * @return bool
 	 *

@@ -81,7 +81,7 @@ EOF
 	/**
 	 * Retrieves the extension from the model and sets the class variable
 	 *
-	 * @param   null  $extensions  Array of extensions
+	 * @param   null    $extensions  Array of extensions
 	 *
 	 * @return void
 	 *
@@ -120,7 +120,7 @@ EOF
 	/**
 	 * Transforms extension arrays into required form
 	 *
-	 * @param   $extensions  Array of extensions
+	 * @param   array    $extensions  Array of extensions
 	 *
 	 * @return array
 	 *

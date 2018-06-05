@@ -73,7 +73,7 @@ class ExtensionInstallCommand extends AbstractCommand
 		{
 			$this->processPathInstallation($this->cliInput->getOption('path'));
 		}
-		else if ($from == 'url')
+		elseif ($from == 'url')
 		{
 			$this->processUrlInstallation($this->cliInput->getOption('url'));
 		}
@@ -81,6 +81,7 @@ class ExtensionInstallCommand extends AbstractCommand
 		{
 			$this->ioStyle->error('Invalid Argument for command.');
 		}
+
 		return 0;
 	}
 
@@ -117,7 +118,7 @@ EOF
 	/**
 	 * Used for installing extension from a path
 	 *
-	 * @param   $path  Path to the extension zip file
+	 * @param   string    $path  Path to the extension zip file
 	 *
 	 * @return bool|int
 	 *
@@ -150,7 +151,7 @@ EOF
 	/**
 	 * Used for installing extension from a URL
 	 *
-	 * @param   $url  URL to the extension zip file
+	 * @param   string    $url  URL to the extension zip file
 	 *
 	 * @return bool
 	 *
