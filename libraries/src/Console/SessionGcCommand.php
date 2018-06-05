@@ -42,6 +42,7 @@ class SessionGcCommand extends AbstractCommand
 		parent::__construct();
 	}
 
+
 	/**
 	 * Execute the command.
 	 *

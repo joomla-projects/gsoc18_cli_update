@@ -174,11 +174,7 @@ class ConsoleApplication extends Application implements DispatcherAwareInterface
 	{
 		return array_merge(
 			parent::getDefaultCommands(),
-			[
-				new Console\CleanCacheCommand,
-				new Console\CheckUpdatesCommand,
-				new Console\RemoveOldFilesCommand,
-			]
+            []
 		);
 	}
 
