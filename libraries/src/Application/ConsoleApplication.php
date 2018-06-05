@@ -12,6 +12,7 @@ defined('JPATH_PLATFORM') or die;
 
 use Joomla\CMS\Console;
 use Joomla\CMS\Extension\ExtensionManagerTrait;
+use Joomla\CMS\Factory;
 use Joomla\Input\Cli;
 use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\Console\Application;
@@ -23,6 +24,7 @@ use Joomla\Event\DispatcherInterface;
 use Joomla\Registry\Registry;
 use Joomla\Session\SessionInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Joomla\CMS\Version;
 
 /**
  * The Joomla! CMS Console Application
@@ -265,5 +267,32 @@ class ConsoleApplication extends Application implements DispatcherAwareInterface
 		$this->session = $session;
 
 		return $this;
+	}
+
+	/**
+	 * Flush the media version to refresh versionable assets
+	 *
+	 * @return  void
+	 *
+	 * @since   3.2
+	 */
+	public function flushAssets()
+	{
+		(new Version)->refreshMediaVersion();
+	}
+
+	/**
+	 * Gets a configuration
+	 *
+	 * @param   $key  string  The configuration to be gotten
+	 *
+	 * @return mixed
+	 *
+	 * @since 4.0
+	 */
+	public function getCfg($key)
+	{
+		$config = Factory::getConfig();
+		return $config->get($key);
 	}
 }

@@ -85,13 +85,9 @@ class ExtensionRemoveCommand extends AbstractCommand
 		);
 
 		$this->setDescription('Removes an Extension');
-		$this->setHelp(
-			<<<EOF
-The <info>%command.name%</info> Removes an extension
 
-<info>php %command.full_name%</info>
-EOF
-		);
+		$help = "The <info>%command.name%</info> Removes an extension \n <info>php %command.full_name%</info>";
+		$this->setHelp($help);
 	}
 
 	/**
@@ -110,8 +106,7 @@ EOF
 
 		$installer = \JInstaller::getInstance();
 		$row       = \JTable::getInstance('extension');
-		$row->load($id);
-		if (!$row)
+		if (!$row->load($id))
 		{
 			$this->ioStyle->error("Extension with ID of $extension_id not found.");
 			return false;

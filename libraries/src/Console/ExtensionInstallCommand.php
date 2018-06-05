@@ -10,11 +10,13 @@ namespace Joomla\CMS\Console;
 
 defined('JPATH_PLATFORM') or die;
 
+use Joomla\CMS\Factory;
+use Joomla\CMS\Installer\Installer;
 use Joomla\Console\AbstractCommand;
-use Symfony\Component\Console\Input\InputArgument;
+use Joomla\CMS\Installer\InstallerHelper;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Joomla\CMS\Factory;
+use Symfony\Component\Console\Input\InputArgument;
 
 /**
  * Console command for checking if there are pending extension updates
@@ -71,11 +73,28 @@ class ExtensionInstallCommand extends AbstractCommand
 
 		if ($from == 'path')
 		{
-			$this->processPathInstallation($this->cliInput->getOption('path'));
+			$result = $this->processPathInstallation($this->cliInput->getOption('path'));
+			if (!$result)
+			{
+				$this->ioStyle->error('Unable to install extension');
+			}
+			else
+			{
+				$this->ioStyle->success('Extension installed successfully.');
+			}
 		}
 		elseif ($from == 'url')
 		{
-			$this->processUrlInstallation($this->cliInput->getOption('url'));
+			$result = $this->processUrlInstallation($this->cliInput->getOption('url'));
+
+			if (!$result)
+			{
+				$this->ioStyle->error('Unable to install extension');
+			}
+			else
+			{
+				$this->ioStyle->success('Extension installed successfully.');
+			}
 		}
 		else
 		{
@@ -105,14 +124,9 @@ class ExtensionInstallCommand extends AbstractCommand
 		$this->addOption('url', null, InputOption::VALUE_REQUIRED, 'The url to the extension');
 
 		$this->setDescription('Installs an extension from a URL or from a Path.');
-		$this->setHelp(
-			<<<EOF
-The <info>%command.name%</info> is used for installing extensions
---path=<path_to_extension> OR --url=<url_to_download_extension>
 
-<info>php %command.full_name%</info>
-EOF
-		);
+		$help = "The <info>%command.name%</info> is used for installing extensions \n --path=<path_to_extension> OR --url=<url_to_download_extension> \n <info>php %command.full_name%</info>";
+		$this->setHelp($help);
 	}
 
 	/**
@@ -131,20 +145,23 @@ EOF
 		if (!file_exists($path))
 		{
 			$this->ioStyle->error('The file path specified does not exist.');
-			return 2;
+			exit(2);
 		}
+
 		$tmp_path = Factory::getApplication()->get('tmp_path');
 		$tmp_path     = $tmp_path . '/' . basename($path);
-		$package  = \JInstallerHelper::unpack($path, true);
+		$package  = InstallerHelper::unpack($path, true);
 
 		if ($package['type'] === false)
 		{
 			return false;
 		}
 
-		$jInstaller = \JInstaller::getInstance();
+		$jInstaller = Installer::getInstance();
 		$result     = $jInstaller->install($package['extractdir']);
-		\JInstallerHelper::cleanupInstall($path, $package['extractdir']);
+		InstallerHelper::cleanupInstall($tmp_path, $package['extractdir']);
+
+		return $result;
 	}
 
 
@@ -161,19 +178,21 @@ EOF
 	 */
 	public function processUrlInstallation($url)
 	{
-		$filename = \JInstallerHelper::downloadPackage($url);
+		$filename = InstallerHelper::downloadPackage($url);
 
 		$tmp_path = Factory::getApplication()->get('tmp_path');
+
 		$path     = $tmp_path . '/' . basename($filename);
-		$package  = \JInstallerHelper::unpack($filename, true);
+		$package  = InstallerHelper::unpack($path, true);
+
 		if ($package['type'] === false)
 		{
 			return false;
 		}
 
-		$jInstaller = \JInstaller::getInstance();
+		$jInstaller = Installer::getInstance();
 		$result     = $jInstaller->install($package['extractdir']);
-		\JInstallerHelper::cleanupInstall($path, $package['extractdir']);
+		InstallerHelper::cleanupInstall($path, $package['extractdir']);
 
 		return $result;
 	}
