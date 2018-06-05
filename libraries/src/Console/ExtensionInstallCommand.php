@@ -125,7 +125,10 @@ class ExtensionInstallCommand extends AbstractCommand
 
 		$this->setDescription('Installs an extension from a URL or from a Path.');
 
-		$help = "The <info>%command.name%</info> is used for installing extensions \n --path=<path_to_extension> OR --url=<url_to_download_extension> \n <info>php %command.full_name%</info>";
+		$help = "The <info>%command.name%</info> is used for installing extensions \n 
+					--path=<path_to_extension> OR --url=<url_to_download_extension> \n 
+					<info>php %command.full_name%</info>";
+		
 		$this->setHelp($help);
 	}
 
