@@ -20,17 +20,4 @@ class ExtensionRemoveCommandTest extends \PHPUnit\Framework\TestCase
 		$parts = array_flip($parts);
 		$this->assertArrayHasKey("Usage:", $parts, 'Message should contain usage instructions');
 	}
-
-	/**
-	 * @testdox 'extension:remove' removes an extension
-	 *
-	 * @since 4.0
-	 */
-	public function testIfExtensionIsRemoved()
-	{
-		exec('php cli/joomla.php extension:remove', $result, $code);
-		$result = implode("\n", $result);
-		$this->assertContains('Installed Extensions', $result, 'Command does not list installed extensions');
-		$this->assertEquals(0, $code, 'Command did not return appropriate code.');
-	}
 }
