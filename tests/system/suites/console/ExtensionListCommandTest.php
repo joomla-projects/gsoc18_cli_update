@@ -30,7 +30,7 @@ class ExtensionListCommandTest extends \PHPUnit\Framework\TestCase
 	{
 		exec('php cli/joomla.php extension:list', $result, $code);
 		$result = implode("\n", $result);
-		$this->assertContains('Installed Extensions', $result, 'Command does not list installed extensions');
+		$this->assertContains('Installed extensions', $result, 'Command does not list installed extensions');
 		$this->assertEquals(0, $code, 'Command did not return appropriate code.');
 	}
 }
