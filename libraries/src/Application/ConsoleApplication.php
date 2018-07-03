@@ -13,7 +13,10 @@ defined('JPATH_PLATFORM') or die;
 use Joomla\CMS\Console;
 use Joomla\CMS\Extension\ExtensionManagerTrait;
 use Joomla\CMS\Factory;
+use Joomla\CMS\Filesystem\Folder;
+use Joomla\CMS\Language\LanguageHelper;
 use Joomla\CMS\Version;
+use Joomla\Database\DatabaseInterface;
 use Joomla\Input\Cli;
 use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\Console\Application;
@@ -139,8 +142,11 @@ class ConsoleApplication extends Application implements DispatcherAwareInterface
 	public function execute()
 	{
 		// Import CMS plugin groups to be able to subscribe to events
-		PluginHelper::importPlugin('system');
-		PluginHelper::importPlugin('console');
+		if (file_exists(JPATH_CONFIGURATION . '/configuration.php'))
+		{
+			PluginHelper::importPlugin('system');
+			PluginHelper::importPlugin('console');
+		}
 
 		parent::execute();
 	}
@@ -184,6 +190,7 @@ class ConsoleApplication extends Application implements DispatcherAwareInterface
 				new Console\ExtensionInstallCommand,
 				new Console\ExtensionRemoveCommand,
 				new Console\CheckJoomlaUpdatesCommand,
+				new Console\CoreInstallCommand,
 			]
 		);
 	}
@@ -281,4 +288,41 @@ class ConsoleApplication extends Application implements DispatcherAwareInterface
 	{
 		(new Version)->refreshMediaVersion();
 	}
+
+	/**
+	 * Returns the installed language files in the administrative and frontend area.
+	 *
+	 * @param   DatabaseInterface  $db  Database driver.
+	 *
+	 * @return  array  Array with installed language packs in admin and site area.
+	 *
+	 * @since   3.1
+	 */
+	public function getLocaliseAdmin(DatabaseInterface $db = null)
+	{
+		$langfiles = array();
+
+		// If db connection, fetch them from the database.
+		if ($db)
+		{
+			foreach (LanguageHelper::getInstalledLanguages() as $clientId => $language)
+			{
+				$clientName = $clientId === 0 ? 'site' : 'admin';
+
+				foreach ($language as $languageCode => $lang)
+				{
+					$langfiles[$clientName][] = $lang->element;
+				}
+			}
+		}
+		// Read the folder names in the site and admin area.
+		else
+		{
+			$langfiles['site']  = Folder::folders(LanguageHelper::getLanguagePath(JPATH_SITE));
+			$langfiles['admin'] = Folder::folders(LanguageHelper::getLanguagePath(JPATH_ADMINISTRATOR));
+		}
+
+		return $langfiles;
+	}
+
 }
